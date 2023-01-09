@@ -41,8 +41,7 @@ public class TestGetterLettrePirate {
         }
         return nouvelListOutput;
     }
-    public static void testsMethodeGetLettrePirate(boolean lanceDepuisTestsGeneraux) throws Exception {
-        if (lanceDepuisTestsGeneraux) {
+    public static void testsMethodeGetLettrePirate(List<String> list) throws Exception {
             //Test pour savoir si la méthode getLettrePirate existe bien
             try {
                 Class.forName("javatests.Pirate").getDeclaredMethod("getLettrePirate");
@@ -59,14 +58,16 @@ public class TestGetterLettrePirate {
             }
             // Test pour savoir si ce que renvoie l'utilisateu est juste
             try {
-                String test = TestPirate.getLine().get(3);
+                String test = list.get(3);
             } catch (Exception e) {
                 throw new Exception("Il faut afficher la lettre du pirate");
             }
-            if (!(TestPirate.getLine().get(3).equals("J"))) {
+            if (!(list.get(3).equals("J"))) {
                 throw new Exception("La lettre n\'est pas la bonne");
             }
-        } else {
+        } 
+
+    public static void testsMethodeGetLettrePirate() throws Exception {
             //Test pour savoir si la méthode getLettrePirate existe bien
             try {
                 Class.forName("javatests.Pirate").getDeclaredMethod("getLettrePirate");
@@ -91,7 +92,6 @@ public class TestGetterLettrePirate {
                 throw new Exception("La lettre n\'est pas la bonne");
             }
         }
-    }
 
     public static void main(String[] args) throws Exception {
         TestPirate.testLaClassePirateExiste();
@@ -103,7 +103,7 @@ public class TestGetterLettrePirate {
         // Faire tests sur les constructeurs
         System.setErr(originalErr);
         System.setOut(originalOut);
-        testsMethodeGetLettrePirate(false);
+        testsMethodeGetLettrePirate();
 
         System.out.println("Le getter getLettrePirate est correct :D");
     }

@@ -29,6 +29,7 @@ public class TestPirate {
         }
         listOutputs = corrigeListOutput(listOutputs);
         // On retourne la liste avec l'ensemble des lignes
+        //System.out.println(listOutputs);
         return listOutputs;
     }
 
@@ -72,7 +73,7 @@ public class TestPirate {
         if (!errContent.toString().isEmpty()) {
             throw new Exception(errContent.toString());
         }
-
+        
         // Tests attributs
         TestNomPirate.testsAttributNomPirate();
         TestTaillePirate.testsAttributTaillePirate();
@@ -80,11 +81,10 @@ public class TestPirate {
         TestLettrePirate.testsAttributLettrePirate();
 
         // Tests getter
-        TestGetterNomPirate.testsMethodeGetNomPirate(true);
-        TestGetterTaillePirate.testsMethodeGetTaillePirate(true);
-        TestGetterPointurePirate.testsMethodeGetPointurePirate(true);
-        TestGetterLettrePirate.testsMethodeGetLettrePirate(true);
-
+        TestGetterNomPirate.testsMethodeGetNomPirate(getLine());
+        TestGetterTaillePirate.testsMethodeGetTaillePirate(getLine());
+        TestGetterPointurePirate.testsMethodeGetPointurePirate(getLine());
+        TestGetterLettrePirate.testsMethodeGetLettrePirate(getLine());
 
         System.out.println("Exercice fini :)");
     }

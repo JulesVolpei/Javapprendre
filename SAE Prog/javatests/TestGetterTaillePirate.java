@@ -42,8 +42,7 @@ public class    TestGetterTaillePirate {
         return nouvelListOutput;
     }
 
-    public static void testsMethodeGetTaillePirate(boolean lanceDepuisTestsGeneraux) throws Exception {
-        if (lanceDepuisTestsGeneraux) {
+    public static void testsMethodeGetTaillePirate(List<String> list) throws Exception {
             // Test pour savoir si la méthode getTaillePirate existe bien
             try {
                 Class.forName("javatests.Pirate").getDeclaredMethod("getTaillePirate");
@@ -60,14 +59,16 @@ public class    TestGetterTaillePirate {
             }
             // Test pour savoir si l'utilisateur renvoie le bon résultat
             try {
-                String test = TestPirate.getLine().get(1);
+                String test = list.get(1);
             } catch (Exception e) {
                 throw new Exception("Il faut afficher la taille du pirate");
             }
-            if (!(TestPirate.getLine().get(1).equals("1.62"))) {
+            if (!(list.get(1).equals("1.62"))) {
                 throw new Exception("La taille du pirate n\'est pas bonne");
             }
-        } else {
+        } 
+
+    public static void testsMethodeGetTaillePirate() throws Exception {
             // Test pour savoir si la méthode getTaillePirate existe bien
             try {
                 Class.forName("javatests.Pirate").getDeclaredMethod("getTaillePirate");
@@ -93,8 +94,6 @@ public class    TestGetterTaillePirate {
             }
         }
 
-    }
-
     public static void main(String[] args) throws Exception {
         TestPirate.testLaClassePirateExiste();
         TestPirate.testLaMéthodeMainExisteCorrectement();
@@ -105,7 +104,7 @@ public class    TestGetterTaillePirate {
         // Faire tests sur les constructeurs
         System.setErr(originalErr);
         System.setOut(originalOut);
-        testsMethodeGetTaillePirate(false);
+        testsMethodeGetTaillePirate();
 
         System.out.println("Le getter getTaillePirate est correct :D");
     }

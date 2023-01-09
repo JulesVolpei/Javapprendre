@@ -1,8 +1,9 @@
 <?php
 
-require_once 'conn.php';
+$pdo = new PDO('sqlite:db/exos_database.db');
+
 try {
-    $res = $conn -> query('select * from exos');
+    $res = $pdo -> query('select * from exos');
     $rows = $res->fetchAll(PDO::FETCH_ASSOC);
 }
 
@@ -14,7 +15,7 @@ catch(PDOException $e)
 
   session_start();
   $idExo = $_GET['id'];
-
+  $numFichiersTests = $rows[$idExo]['numFichiersTests'];
   function reset_code(){
 
     
@@ -29,6 +30,29 @@ catch(PDOException $e)
     <link rel =  "stylesheet" type = "text/css" href = "prism/prism.css">
     <link rel =  "stylesheet" type = "text/css" href = "css/page5.css">
     
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
+    <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    
+   <script>
+   $(function() {
+    $( "#dialog-4" ).dialog({
+       autoOpen: false, 
+       modal: true,
+       draggable: false,
+       height: 600,
+       width: 600,
+       resizeable: false,
+       buttons: {
+          OK: function() {$(this).dialog("close");}
+       },
+    });
+    $( "#opener-4" ).click(function() {
+       $( "#dialog-4" ).dialog( "open" );
+    });
+  });
+  </script> 
     </head>
 <body>
 
@@ -42,20 +66,17 @@ catch(PDOException $e)
     <!--Navigation bar -->
     <section class="navigation">
         <div class="nav-container">
+          
           <div class="brand">
             <a href="#!">Logo</a>
           </div>
-          <!--<nav>-->
-            <!--<ul class="nav-list">
-              <li> -->
                 
                 <div id = "nom_exo"><?php echo $idExo." ".$rows[$idExo]['nom_exo'] ; ?></div>
-             <!-- </li>
-              <li> -->
-              <a href="#" class="bn14">Indice</a>
-            <!--  </li>
-            </ul> -->
-        <!--  </nav> -->
+                <div id = "dialog-4" title = "Indice exo"> <?php echo $rows[$idExo]['indice'] ; ?></div>
+                <button id = "opener-4" class = "bn14">Voir indice</button>
+                <div  name="affi" id="time"></div>
+                
+                <!--<a href="#" class="bn14">Indice</a>-->
         </div>
       </section>
      <!-- Form for inserting code --> 
@@ -79,15 +100,23 @@ catch(PDOException $e)
     <div class = "float-container">
     <div class = "objectif float-child"><?php echo $rows[$idExo]['objectif_exo'] ?></div>
     <!-- Tests unitaires-->
-    <!--<div class = "test float-child">Tests</div> -->       
+   <div class = "test float-child">
+      <?php 
+      for($x = 1; $x <= $numFichiersTests; ++$x)
+          echo '<br><div class = "test-child">Test numero ' . $x.'<button class = "bn15">Run</button></div><br>'
+      
+      ?>
+
+    </div> -->       
     <!--Tests unitaires -->
     </div>
 
     <script src = "js/page5.js"> </script>
+    <script src = "js/chronometre.js"> </script>
     <!-- Script for Prism.js library -->
     <script src = "prism/prism.js"></script>
     <!-- JQUERY -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>-->
 
 </body>
 </html>

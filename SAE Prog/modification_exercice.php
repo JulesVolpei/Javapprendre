@@ -28,7 +28,7 @@ if(ISSET($_POST['creer'])){ //Vérifie si l'utilisateur a appuyé sur le bouton 
     $nom = $_POST['nom'];
     $description = $_POST['description'];
     $contenuExo = $_POST['contenu'];
-    $filePath = "prism/" . $nom;
+    $filePath = "javatests/" . $nom;
     $programFile = fopen($filePath, "w") or die("Unable to open file!");
     fwrite($programFile, $contenuExo);
     fclose($programFile); 
@@ -59,15 +59,3 @@ if(ISSET($_POST['supprimer'])){ //Vérifie si l'utilisateur a appuyé sur le bou
 header("Refresh: 3;choix_exercice_admin.php");
 
 }
-
-    
-
-
-
-
-	
-
-
-
-
-

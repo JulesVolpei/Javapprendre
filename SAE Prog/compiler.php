@@ -17,19 +17,31 @@
     //echo $code;
     //Opening java file
     $filePath = substr($chemin_fichier_test, 4);
+    $filePath = "javatests/" . $filePath;
+    //echo $filePath;
+    
+    //$chemin_fichier_test = "javatests/". $chemin_fichier_test;
+    $chemin_fichier_test = "javatests/TestPirate.java";
+    //$chemin_fichier_test2 = "javatests/TestGetterLettrePirate.java";
+
+    //echo $chemin_fichier_test;
     $programFile = fopen($filePath, "w")  or die("Unable to open file!");
     //Inserting code into java file
     fwrite($programFile, $code);
     fclose($programFile);
     /*compile*/
     //Compiling source file into a class file that can run on Java Virtual Machine
-    shell_exec("javac ". $filePath);
+    shell_exec("javac  ". $filePath);
     //Run code and put answer in the output div
     $output = shell_exec("java " . $filePath. " 2>&1"); 
-    echo $output;
+    //echo $output;
     
     shell_exec("javac ". $chemin_fichier_test);
     //Run code and put answer in the output div
     $output = shell_exec("java " . $chemin_fichier_test. " 2>&1"); 
     echo $output;
+    //shell_exec("javac ". $chemin_fichier_test2);
+
+    //$output = shell_exec("java " . $chemin_fichier_test2. " 2>&1");
+    //echo $output;
 ?>

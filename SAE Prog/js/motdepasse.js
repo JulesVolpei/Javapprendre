@@ -106,30 +106,10 @@ function strengthChecker() {
                 var a = a + 1;
                 break;
         }
-        if (a != 1) {
-            // alert("Votre mot de passe n'est pas assez fort !");
+        /*if (a != 1) {
+            alert("Votre mot de passe n'est pas assez fort !");
             return false;
-        }
+        }*/
     }
-
-    const scores = [];
-
-    function startTimer() {
-        let time = 0;
-        const interval = setInterval(() => {
-            time++;
-        }, 1000);
-
-        document.getElementById('stop-button').addEventListener('click', () => {
-            clearInterval(interval);
-            scores.push(time);
-            scores.sort((a, b) => a - b);
-            console.log(`Your time was: ${time} seconds`);
-            console.log(`Current leaderboard: ${scores}`);
-        });
-    }
-
-    document.getElementById('start-button').addEventListener('click', startTimer);
-
 
 }

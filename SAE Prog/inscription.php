@@ -55,7 +55,7 @@ session_start();
 				</div>
 
 				<?php
-				//$_SESSION['pseudo'] = $_POST['pseudo'];
+				$_SESSION['pseudo'] = $_POST['pseudo'];
 				//Regarde si la session  'succes' est set. Succes est le message lors du succè d'inscription
 				if (isset($_SESSION['succes'])) {
 				?>
@@ -95,18 +95,6 @@ session_start();
 				<?php
 
 					unset($_SESSION['erreur3']);
-				}
-				?>
-				<?php
-				if (isset($_SESSION['erreur4'])) {
-				?>
-					<!-- Display registration success message -->
-					<div class="alert alert-success"><?php echo $_SESSION['erreur4'] ?></div>
-
-
-				<?php
-
-					unset($_SESSION['erreur4']);
 				}
 				?>
 

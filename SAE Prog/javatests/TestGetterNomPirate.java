@@ -41,8 +41,7 @@ public class TestGetterNomPirate {
         }
         return nouvelListOutput;
     }
-    public static void testsMethodeGetNomPirate(boolean lanceDepuisTestsGeneraux) throws Exception {
-        if (lanceDepuisTestsGeneraux) {
+    public static void testsMethodeGetNomPirate(List<String> list) throws Exception {
             // Test pour savoir si la méthode getNomPirate existe
             try {
                 Class.forName("javatests.Pirate").getDeclaredMethod("getNomPirate");
@@ -57,11 +56,11 @@ public class TestGetterNomPirate {
             if (!(Class.forName("javatests.Pirate").getDeclaredMethod("getNomPirate").getReturnType().toString().equals("class java.lang.String"))) {
                 throw new Exception("La méthode getNomPirate ne renvoie pas un objet String");
             }
-            System.out.println(TestPirate.getLine().get(0));
-            if (!(TestPirate.getLine().get(0).equals("Clemenceau"))) {
+            if (!(list.get(0).equals("Clemenceau"))) {
                 throw new Exception("Le nom du pirate n\'est pas bon");
             }
-        } else {
+        } 
+    public static void testsMethodeGetNomPirate() throws Exception {
             // Test pour savoir si la méthode getNomPirate existe
             try {
                 Class.forName("javatests.Pirate").getDeclaredMethod("getNomPirate");
@@ -76,12 +75,10 @@ public class TestGetterNomPirate {
             if (!(Class.forName("javatests.Pirate").getDeclaredMethod("getNomPirate").getReturnType().toString().equals("class java.lang.String"))) {
                 throw new Exception("La méthode getNomPirate ne renvoie pas un objet String");
             }
-            System.out.println(getLine().get(0));
             if (!(getLine().get(0).equals("Clemenceau"))) {
                 throw new Exception("Le nom du pirate n\'est pas bon");
             }
         }
-    }
 
     public static void main(String[] args) throws Exception {
         TestPirate.testLaClassePirateExiste();
@@ -93,7 +90,7 @@ public class TestGetterNomPirate {
         // Faire tests sur les constructeurs
         System.setErr(originalErr);
         System.setOut(originalOut);
-        testsMethodeGetNomPirate(false);
+        testsMethodeGetNomPirate();
 
         System.out.println("Le getter getNomPirate est correct :D");
     }

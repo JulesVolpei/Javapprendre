@@ -16,26 +16,22 @@ $_SESSION['id'] = $idExo;
     <link rel="stylesheet" type="text/css" href="css/formulaire.css" />
 </head>
 
-<div class="col-md-3"></div>
-<div class="col-md-6 well">
-    <h3 class="text-primary">Modification exercice</h3>
-    <hr style="border-top:1px dotted #ccc;" />
-    <form method="POST" action="modification_exercice.php">
-        <!--Petit formulaire pour la modification de l'exercice-->
 
-        <div class="form-group">
+<form method="POST" action="modification_exercice.php"> <!--Petit formulaire pour la modification de l'exercice-->
 
-            <input type="mail" name="nomExo" class="form-control" required="required" />
-            <label>Nom de l'exercice</label>
-        </div>
-        <div class="form-group">
+    <div class="form-group">
 
-            <input type="text" name="descriptionExo" class="form-control" required="required" />
-            <label>Description de l'exercice</label>
-        </div>
-        <div class="button">
-            <div class="inner"></div>
-            <button name="enregistrement"> Confirmer modification</button>
-        </div>
-    </form>
-</div>
+        <input type="mail" name="nomExo" class="form-control" required="required" />
+        <label>Nom de l'exercice</label>
+    </div>
+    <div class="form-group">
+
+        <input type="text" name="descriptionExo" class="form-control" required="required" />
+        <label>Description de l'exercice</label>
+    </div>
+    <div class="button">
+        <div class="inner"></div>
+        <button name="enregistrement"> Confirmer modification</button>
+     
+
+        

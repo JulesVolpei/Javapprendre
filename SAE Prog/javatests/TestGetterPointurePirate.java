@@ -41,8 +41,7 @@ public class TestGetterPointurePirate {
         }
         return nouvelListOutput;
     }
-    public static void testsMethodeGetPointurePirate(boolean lanceDepuisTestsGeneraux) throws Exception {
-        if (lanceDepuisTestsGeneraux) {
+    public static void testsMethodeGetPointurePirate(List<String> list) throws Exception {
             // Test pour savoir si la méthode getPointurePirate existe
             try {
                 Class.forName("javatests.Pirate").getDeclaredMethod("getPointurePirate");
@@ -59,14 +58,15 @@ public class TestGetterPointurePirate {
             }
             // Test pour savoir si l'utilisateur renvoie le bon résultat
             try {
-                String test = TestPirate.getLine().get(2);
+                String test = list.get(2);
             } catch (Exception e) {
                 throw new Exception("Il faut afficher la pointure du pirate");
             }
-            if (!(TestPirate.getLine().get(2).equals("48"))) {
+            if (!(list.get(2).equals("48"))) {
                 throw new Exception("La pointure du pirate n\'est pas bonne");
             }
-        } else {
+        } 
+    public static void testsMethodeGetPointurePirate() throws Exception {
             // Test pour savoir si la méthode getPointurePirate existe
             try {
                 Class.forName("javatests.Pirate").getDeclaredMethod("getPointurePirate");
@@ -91,7 +91,6 @@ public class TestGetterPointurePirate {
                 throw new Exception("La pointure du pirate n\'est pas bonne");
             }
         }
-    }
 
     public static void main(String[] args) throws Exception {
         TestPirate.testLaClassePirateExiste();
@@ -103,7 +102,7 @@ public class TestGetterPointurePirate {
         // Faire tests sur les constructeurs
         System.setErr(originalErr);
         System.setOut(originalOut);
-        testsMethodeGetPointurePirate(false);
+        testsMethodeGetPointurePirate();
 
         System.out.println("Le getter getPointurePirate est correct :D");
     }
