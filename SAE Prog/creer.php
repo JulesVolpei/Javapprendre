@@ -1,8 +1,8 @@
+<!DOCTYPE html>
 <?php
 //starting the session
 session_start();
 ?>
-<html lang="fr">
 
 <head>
     <title>Creer exercice </title>
@@ -12,27 +12,24 @@ session_start();
     <link rel="stylesheet" type="text/css" href="css/formulaire.css" />
 </head>
 
-<div class="col-md-3"></div>
-<div class="col-md-6 well">
-    <h3 class="text-primary">Création d'exercice</h3>
-    <hr style="border-top:1px dotted #ccc;" />
-    <form method="POST" action="modification_exercice.php">
 
-        <div class="form-group">
+<form method="POST" action="modification_exercice.php">
+ 
+    <div class="form-group">
 
-            <input type="mail" name="nom" class="form-control" required="required" />
-            <label>Nom de l'exercice</label>
-        </div>
-        <div class="form-group">
+        <input type="mail" name="nom" class="form-control" required="required" />
+        <label>Nom de l'exercice</label>
+    </div>
+    <div class="form-group">
 
-            <input type="text" name="description" class="form-control" required="required" />
-            <label>Description de l'exercice</label>
-        </div>
-        <div class="button">
-            <div class="inner"></div>
-            <button name="creer"> Confirmer la création</button>
-        </div>
-    </form>
-</div>
+        <input type="text" name="description" class="form-control" required="required" />
+        <label>Description de l'exercice</label>
+    </div>
 
-</html>
+    <div class="form-group">
+        <input type="text" name="contenu" class="form-control" required="required" />
+        <label>Contenu de l'exercice</label>
+    </div>
+    <div class="button">
+        <div class="inner"></div>
+        <button name="creer"> Confirmer la création</button>
