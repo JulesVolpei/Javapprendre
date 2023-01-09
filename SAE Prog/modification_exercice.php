@@ -4,7 +4,6 @@
 session_start();
 
 require_once 'conn.php';
-$conn = new PDO('sqlite:db/exos_database.db');
 $idExo = $_SESSION['id'];
 
 
@@ -28,12 +27,19 @@ header("Refresh: 3;choix_exercice_admin.php");
 if(ISSET($_POST['creer'])){ //Vérifie si l'utilisateur a appuyé sur le bouton créer l'exo
     $nom = $_POST['nom'];
     $description = $_POST['description'];
+    $contenuExo = $_POST['contenu'];
+    $filePath = "prism/" . $nom;
+    $programFile = fopen($filePath, "w") or die("Unable to open file!");
+    fwrite($programFile, $contenuExo);
+    fclose($programFile); 
    
-    $query = "INSERT INTO exos ( nom_exo,description_exo) VALUES ( :nom, :description )"; //On insert dans la table exos le nom de l'exo, la description
+    $query = "INSERT INTO exos ( nom_exo,description_exo,text_de_base) VALUES ( :nom, :description, :contenu )"; //On insert dans la table exos le nom de l'exo, la description et le contenu
     $stmt = $conn->prepare($query);
     $stmt -> bindParam( ':nom', $nom);
+    $stmt->bindParam(':contenu', $contenuExo);
     $stmt -> bindParam( ':description', $description);
     $stmt->execute();    
+    
     echo "Succès ! L'exercice vient d'être créé. Redirection automatique dans 3 secondes ";
 
 header("Refresh: 3;choix_exercice_admin.php");
@@ -53,7 +59,7 @@ if(ISSET($_POST['supprimer'])){ //Vérifie si l'utilisateur a appuyé sur le bou
 header("Refresh: 3;choix_exercice_admin.php");
 
 }
-?>
+
     
 
 

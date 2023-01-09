@@ -8,10 +8,10 @@ if (!isset($_SESSION['pseudo'])) {
 ?>
 <?php
 //DEFINE PDO
-$pdo = new PDO('sqlite:db/exos_database.db');
+require_once 'conn.php';
 
 try {
-  $res = $pdo->query('select * from exos');
+  $res = $conn->query('select * from exos');
   $rows = $res->fetchAll(PDO::FETCH_ASSOC);
   //get length of rows:
   $number_of_rows = count($rows);

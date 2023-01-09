@@ -1,9 +1,8 @@
 <?php
 
-$pdo = new PDO('sqlite:db/exos_database.db');
-
+require_once 'conn.php';
 try {
-    $res = $pdo -> query('select * from exos');
+    $res = $conn -> query('select * from exos');
     $rows = $res->fetchAll(PDO::FETCH_ASSOC);
 }
 
