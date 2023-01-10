@@ -19,8 +19,9 @@ a:visited {
 }
 
 .nav-container {
-    margin: 0 auto;
     position: relative;
+    display: flex;
+    justify-content: space-between;
 }
 
 nav {
@@ -100,15 +101,14 @@ nav ul li a:visited:hover {
     letter-spacing: 0.1em;
     text-decoration: none;
     color: #ffffff;
-    display: inline-block;
+    display:inline-table;
     padding: 10px 40px 10px 40px;
     position: relative;
     border: 3px solid #ffffff;
     border-radius: 25px;
-    margin-left: 44%;
-    margin-right: 35%;
     margin-top: 15px;
 }
+
 
 .brese {
     font-family: lato, sans-serif;
@@ -274,8 +274,7 @@ ui-button {
     position: relative;
     border: 3px solid #ffffff;
     border-radius: 25px;
-    margin-left: 35%;
-    margin-right: 35%;
+    margin-left: 30%;
     margin-top: 15px;
 }
 
