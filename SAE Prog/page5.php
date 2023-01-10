@@ -70,11 +70,19 @@ catch(PDOException $e)
           <div class="brand">
             <a href="#!">Logo</a>
           </div>
-                
-                <div id = "nom_exo"><?php echo $idExo." ".$rows[$idExo]['nom_exo'] ; ?></div>
-                <div id = "dialog-4" title = "Indice exo"> <?php echo $rows[$idExo]['indice'] ; ?></div>
-                <button id = "opener-4" class = "bn14">Voir indice</button>
-                <div  name="affi" id="time"></div>
+          
+           <div name="affi" id="time"></div>  
+          <div id = "nom_exo">
+            <?php echo $idExo." ".$rows[$idExo]['nom_exo'] ; ?>
+          </div>
+
+         
+
+          <div id = "dialog-4" title = "Indice exo">
+            <?php echo $rows[$idExo]['indice'] ; ?>
+          </div>
+
+          <button id = "opener-4" class = "bn14">Voir indice</button>
                 
                 <!--<a href="#" class="bn14">Indice</a>-->
         </div>
