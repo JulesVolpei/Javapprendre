@@ -14,12 +14,18 @@ catch(PDOException $e)
 
 
   session_start();
-  $idExo = $_GET['id'];
-  $numFichiersTests = $rows[$idExo]['numFichiersTests'];
-  function reset_code(){
 
-    
-  }
+  //getting the id of the exercice:
+  $idExo = $_GET['id'];
+
+  //getting the number of test files so that we know how many buttons we need:
+  $numFichiersTests = $rows[$idExo]['numFichiersTests'];
+
+  //getting all the test files as a single string:
+  $chemin_fichier_test = $rows[$idExo]['fichier_test'];
+
+  //splitting the test files into an array:
+  $files = explode("\n", $chemin_fichier_test);
 ?>
 
 <!DOCTYPE html>
@@ -34,10 +40,14 @@ catch(PDOException $e)
          rel = "stylesheet">
     <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-    
-   <script>
-   $(function() {
-    $( "#dialog-4" ).dialog({
+    <script>
+   var n = "<?php echo"$numFichiersTests"?>";
+   for(let i = 0; i < n; ++i)
+    {
+      //console.log("#dialog-"+i);
+      //console.log($("dialog-"+i));
+      $(function() {
+      $( "#dialog-"+i).dialog({
        autoOpen: false, 
        modal: true,
        draggable: false,
@@ -48,11 +58,14 @@ catch(PDOException $e)
           OK: function() {$(this).dialog("close");}
        },
     });
-    $( "#opener-4" ).click(function() {
-       $( "#dialog-4" ).dialog( "open" );
+    $( "#opener-"+i).click(function() {
+      console.log("clicked");
+       $( "#dialog-"+i).dialog( "open" );
     });
   });
-  </script> 
+}
+  </script>
+
     </head>
 <body>
 
@@ -66,24 +79,11 @@ catch(PDOException $e)
     <!--Navigation bar -->
     <section class="navigation">
         <div class="nav-container">
-          
           <div class="brand">
             <a href="#!">Logo</a>
           </div>
-          
-           <div name="affi" id="time"></div>  
-          <div id = "nom_exo">
-            <?php echo $idExo." ".$rows[$idExo]['nom_exo'] ; ?>
-          </div>
-
-         
-
-          <div id = "dialog-4" title = "Indice exo">
-            <?php echo $rows[$idExo]['indice'] ; ?>
-          </div>
-
-          <button id = "opener-4" class = "bn14">Voir indice</button>
-                
+          <div name="affi" id="time"></div>  
+          <div id = "nom_exo"><?php echo $idExo." ".$rows[$idExo]['nom_exo'] ; ?></div>
                 <!--<a href="#" class="bn14">Indice</a>-->
         </div>
       </section>
@@ -97,7 +97,7 @@ catch(PDOException $e)
       <pre id = "highlighting" aria-hidden = "true"><code class = "language-java" id = "highlighting-content"></code></pre>
       
       <!-- Execute code button -->
-      <a href = "#" class = "brese" onclick = "executeCode()">Run </a>
+      <a href = "#" class = "brese" onclick = "executeCode(0, this)">Run </a>
 
       </div>
     <!-- Rendu visuel -->
@@ -110,21 +110,23 @@ catch(PDOException $e)
     <!-- Tests unitaires-->
    <div class = "test float-child">
       <?php 
-      for($x = 1; $x <= $numFichiersTests; ++$x)
-          echo '<br><div class = "test-child">Test numero ' . $x.'<button class = "bn15">Run</button></div><br>'
-      
+      for($x = 1; $x < $numFichiersTests; ++$x)
+        { 
+          echo '<br><div class = "test-child">Test ' . $files[$x] .'<div id = "dialog-'.$x.'" title = "Indice exo">Indice '.$x.'</div> <button id = "opener-'.$x.'" class = "bn15">Voir indice</button><button class = "bn15" onclick = "executeCode('.$x. ', this)">Run</button></div><br>';
+        }
       ?>
 
-    </div> -->       
+    </div>       
     <!--Tests unitaires -->
     </div>
 
     <script src = "js/page5.js"> </script>
-    <script src = "js/chronometre.js"> </script>
     <!-- Script for Prism.js library -->
     <script src = "prism/prism.js"></script>
+    <script src = "js/chronometre.js"></script>
+
     <!-- JQUERY -->
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>-->
-
+    
 </body>
 </html>
