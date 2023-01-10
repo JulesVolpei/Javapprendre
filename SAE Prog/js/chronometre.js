@@ -63,12 +63,12 @@ $('.output').bind('DOMSubtreeModified', function() {
     if (d.innerHTML == "Exercice fini :)\n") {
         console.log("stop");
         stopAlarme = false;
-        temps = min_ + ":" + sec_;
+        temps = "test";
         window.open('https://javascript.info');
         $.ajax({
             url: "score.php",
             type: "POST",
-            data: { test: test },
+            data: { temps: temps },
 
         });
 
