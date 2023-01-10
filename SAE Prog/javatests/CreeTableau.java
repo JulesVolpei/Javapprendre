@@ -1,4 +1,5 @@
 package javatests;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -12,9 +13,9 @@ public class CreeTableau {
         if (tableauStatic.isEmpty()) {
             Random generateurTaille = new Random(); // Taille de la liste
             Random generateurEntiers = new Random(); // Entier dans la liste
-            for (int i = 0; i < generateurTaille.nextInt(15); i += 1) {
+            for (int i = 0; i < generateurTaille.nextInt(5, 15); i += 1) {
                 // On ajoute un entier entre 1 et 99
-                tableauStatic.add(generateurEntiers.nextInt(99));
+                tableauStatic.add(generateurEntiers.nextInt(1, 99));
             }
         }
         // On parcourt le tableau static

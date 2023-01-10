@@ -4,10 +4,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public class TestTriCroissant {
+public class TestMoyenne {
     // C'est ce qui permet de récupérer les sorties terminales
     private static final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private static final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
@@ -94,28 +93,34 @@ public class TestTriCroissant {
         }
     }
 
-    public static void testTriCroissantTableau(Tableaux tab) throws Exception{
-        try { // Si la classe ne comporte pas une méthode déclarée qui s'appelle : triTableauCroissant
-            Class.forName("javatests.Tableaux").getDeclaredMethod("triTableauCroissant");
+    public static void testTableauRenvoieMoyenne(Tableaux tab) throws Exception {
+        try { // Si la classe Tableau ne comporte pas de méthode déclarée qui s'apelle : moyenneTableau
+            Class.forName("javatests.Tableaux").getDeclaredMethod("moyenneTableau");
         } catch (Exception e) {
             // Message d'erreur
-            throw new Exception("La méthode triTableauCroissant est mal orthographiée");
+            throw new Exception("La méthode moyenneTableau est mal orthographiée");
         }
-        // On teste le tri fait par l'utilisateur
-        tab.triTableauCroissant();
-        // On fait le tri déjà présent dans Collections
-        Collections.sort(CreeTableau.getTableauStatic());
-        for (int i = 0; i < CreeTableau.getTableauStatic().size(); i += 1) {
-            // On regarde chaque élément des deux listes pour savoir si les éléments sont les mêmes
-            if (CreeTableau.getTableauStatic().get(i) != tab.getTableauEntiers().get(i)) {
-                // Sinon message d'erreur
-                throw new Exception("Le trie n\'est pas bon");
-            }
+        // On regarde si la méthode moyenneTableau est publique
+        if (!(Class.forName("javatests.Tableaux").getDeclaredMethod("moyenneTableau").getModifiers() == Modifier.PUBLIC)) {
+            // Message d'erreur
+            throw new Exception("La méthode n\'est pas publique");
+        }
+        // On regarde si la méthode moyenneTableau renvoie bien un double
+        if (!(Class.forName("javatests.Tableaux").getDeclaredMethod("moyenneTableau").getReturnType().toString().equals("double"))) {
+            // Message d'erreur
+            throw new Exception("La méthode moyenneTableau doit renvoyer un double");
+        }
+        // On met le résultat de la méthode moyenneTableau fait par l'utilisateur dans une variable et on fait la moyenne des éléments de la liste static
+        double resutalt = tab.moyenneTableau();
+        double moyenneTableauStatic = CreeTableau.getTableauStatic().stream().mapToDouble(entier -> entier).sum() / CreeTableau.getTableauStatic().size();
+        // Si les deux moyennes sont différentes
+        if (!(resutalt == moyenneTableauStatic)) {
+            // Message d'erreur
+            throw new Exception("Le calcul de moyenne n\'est pas bon.");
         }
     }
 
     public static void main(String[] args) throws Exception {
-
         System.setOut(new PrintStream(outContent));
         System.setErr(new PrintStream(errContent));
         Tableaux.main(null);
@@ -130,8 +135,8 @@ public class TestTriCroissant {
         premierGetLineEstLeTableau();
         List<Integer> listeTest = convertiLaSortieEnTableau();
         Tableaux tableauTest = new Tableaux(listeTest);
-        testTriCroissantTableau(tableauTest);
+        testTableauRenvoieMoyenne(tableauTest);
 
-        System.out.println("Le tri par ordre croissant est correct !");
+        System.out.println("Le tableau renvoie la bonne moyenne !");
     }
 }

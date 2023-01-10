@@ -1,9 +1,10 @@
 package javatests;
+
 import java.util.*;
 
 public class Tableaux {
 
-    private List<Integer> tableauEntiers = new ArrayList<>();
+    private List<Integer> tableauEntiers;
 
     public Tableaux() {
         this.tableauEntiers = new CreeTableau().getTableauPasStatic();
@@ -18,20 +19,26 @@ public class Tableaux {
     }
 
     public void triTableauCroissant() {
-            this.tableauEntiers.sort(null);
+        Collections.sort(tableauEntiers);
     }
 
     public double moyenneTableau() {
-        return 0;
+        double moy = 0;
+        for (int i = 0; i < tableauEntiers.size(); ++i){
+            moy += tableauEntiers.get(i);
+        }
+        moy /= tableauEntiers.size();
+        return moy;
     }
 
 
     public int entierMax() {
-        return 0;
+        return Collections.max(tableauEntiers);
     }
 
     public int entierMin() {
-        return 0;
+        this.triTableauCroissant();
+        return tableauEntiers.get(0);
     }
 
     public static void main(String[] args) {

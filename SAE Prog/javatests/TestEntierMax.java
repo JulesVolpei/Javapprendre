@@ -1,4 +1,5 @@
 package javatests;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.lang.reflect.Modifier;
@@ -93,7 +94,7 @@ public class TestEntierMax {
         }
     }
     public static void testIndiceMaxTableau(Tableaux tab) throws Exception {
-        try { // Si la classe Tableaux ne comporte pas de méthode entierMax
+        try { // Si la classe javatests.Tableaux ne comporte pas de méthode entierMax
             Class.forName("javatests.Tableaux").getDeclaredMethod("entierMax");
         } catch (Exception e) {
             // Message d'erreur
