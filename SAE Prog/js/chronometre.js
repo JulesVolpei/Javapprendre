@@ -1,4 +1,3 @@
-//Chronomètre
 var stopAlarme = true;
 var centi = 0;
 var sec = 0;
@@ -9,8 +8,9 @@ var compt = 0;
 
 function chrono() {
     centi++;
-    centi * 10; //=======pour passer en dixièmes de sec
-    //=== on remet à zéro quand on passe à 1seconde, 1min, 1heure, 1jour
+    //Passage en dixièmes de secondes
+    centi * 10;
+    //Remise à zéro lorsque 1 seconde, 1 minute, 1 heure, 1 jour est atteinte
     if (stopAlarme == true) {
         if (centi > 9) {
             centi = 0;
@@ -27,11 +27,7 @@ function chrono() {
             h++;
         }
 
-
-        //======
-
-        //================ On ajoute un zero pour avoir 1h01:05sec
-
+        // Ajout d'un zéro pour avoir 1h01:05sec
         if (sec < 10) {
             var sec_ = "0" + sec;
         } else {
@@ -43,35 +39,36 @@ function chrono() {
         } else {
             var min_ = min;
         }
-        //===============
 
-        var loc = h + ":" + min_ + ":" + sec_ + ":" + centi;
+        // Mise à jour de la variable loc avec le temps courant
+        loc = h + ":" + min_ + ":" + sec_ + ":" + centi;
+
         var temps = min_ + ":" + sec_;
-        //================= Pour que cela s'affiche dans l'élément "time"
+        // Affichage du temps dans l'élément HTML avec l'id "time"
         document.getElementById("time").innerHTML = temps;
 
-        //=================lancement du chrono
-
-        reglage = window.setTimeout("chrono();", 100);
+        // Lancement du chrono toutes les 10 centièmes de seconde
+        reglage = window.setTimeout(chrono, 100);
     }
-
-
 }
-chrono();
+
 $('.output').bind('DOMSubtreeModified', function() {
     var d = document.querySelector(".output");
-    //console.log(d.innerHTML);
     if (d.innerHTML == "Exercice fini :)\n") {
         console.log("stop");
         stopAlarme = false;
-        var temps = "kbnhbh";
+        // Envoie du temps réel chronométré dans la requête AJAX
         $.ajax({
-            url: "./score.php",
             type: "POST",
-            data: { temps: temps },
-        }).done(function(response) {
-            console.log(response);
-
+            url: "./score.php",
+            data: { data: loc },
+            success: function(response) {
+                console.log(response);
+            }
         });
+        setTimeout(function(){ 
+            window.open('score.php'); 
+        }, 3000); // redirection après 3 secondes
     }
 });
+chrono();
