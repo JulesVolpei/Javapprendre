@@ -3,7 +3,7 @@
 //On commence la session
 session_start();
 
-$conn = new PDO('sqlite:../db/db_membre.sqlite3');
+$conn = new PDO('sqlite:../db/exos_database.db');
 $idExo = $_SESSION['id'];
 
 

@@ -23,6 +23,6 @@ public class TestPointurePirate {
     public static void main(String[] args) throws Exception {
         testsAttributPointurePirate();
 
-        System.out.println("L\'attribut pointurePirate est correct");
+        System.out.println("Le test est bon");
     }
 }

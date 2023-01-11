@@ -22,6 +22,6 @@ public class TestNomPirate {
 
     public static void main(String[] args) throws Exception {
         testsAttributNomPirate();
-        System.out.println("L\'attribut nomPirate est correct :D");
+        System.out.println("Le test est bon");
     }
 }

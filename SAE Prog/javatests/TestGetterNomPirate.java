@@ -92,6 +92,6 @@ public class TestGetterNomPirate {
         System.setOut(originalOut);
         testsMethodeGetNomPirate();
 
-        System.out.println("Le getter getNomPirate est correct :D");
+        System.out.println("Le test est bon");
     }
 }

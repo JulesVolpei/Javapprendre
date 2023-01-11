@@ -106,6 +106,6 @@ public class    TestGetterTaillePirate {
         System.setOut(originalOut);
         testsMethodeGetTaillePirate();
 
-        System.out.println("Le getter getTaillePirate est correct :D");
+        System.out.println("Le test est bon");
     }
 }

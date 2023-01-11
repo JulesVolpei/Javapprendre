@@ -22,6 +22,6 @@ public class TestTaillePirate {
 
     public static void main(String[] args) throws Exception {
         testsAttributTaillePirate();
-        System.out.println("L\'attribut taillePirate est correct");
+        System.out.println("Le test est bon");
     }
 }

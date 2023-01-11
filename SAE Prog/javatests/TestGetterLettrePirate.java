@@ -105,6 +105,6 @@ public class TestGetterLettrePirate {
         System.setOut(originalOut);
         testsMethodeGetLettrePirate();
 
-        System.out.println("Le getter getLettrePirate est correct :D");
+        System.out.println("Le test est bon");
     }
 }
