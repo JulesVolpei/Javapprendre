@@ -3,7 +3,7 @@
 //On commence la session
 session_start();
 
-$conn = new PDO('sqlite:../db/db_membre.sqlite3');
+$conn = new PDO('sqlite:../db/bd_marche.sqlite3');
 
 if (isset($_POST['enregistrement'])) {
 	//On créé les variables 

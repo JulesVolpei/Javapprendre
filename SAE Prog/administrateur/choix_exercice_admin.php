@@ -8,7 +8,7 @@ if (!isset($_SESSION['pseudo'])) {
 ?>
 <?php
 //DEFINE PDO
-$conn = new PDO('sqlite:../db/exos_database.db');
+$conn = new PDO('sqlite:../db/bd_marche.sqlite3');
 try {
   $res = $conn->query('select * from exos');
   $rows = $res->fetchAll(PDO::FETCH_ASSOC);

@@ -1,5 +1,5 @@
 <?php
-    $pdo = new PDO('sqlite:db/exos_database.db');
+    $pdo = new PDO('sqlite:db/bd_marche.sqlite3');
 
     try {
         $res = $pdo -> query('select * from exos');

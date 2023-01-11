@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$conn = new PDO('sqlite:../db/db_membre.sqlite3');
+	$conn = new PDO('sqlite:../db/bd_marche.sqlite3');
 	if(ISSET($_POST['login'])){  //Initialisation des variables
 		$pseudo = $_POST['pseudo']; //Affecte le post de pseudo (saisie de l'utilisateur) dans la variable pseudo
 		$motdepasse = hash("sha256",$_POST['motdepasse']); //Mot de passe chiffré
