@@ -82,7 +82,7 @@ try {
     <div class="swiper-button-next"></div>
   </div>
 
-  <a href="#" class="custom-btn btn-5">Voir tous les exercices</a>
+
   <div class="wrapper">
     <div id="cent">
       <a href="aPropos.html" class="bn14 btn-footer-right">À propos</a>
