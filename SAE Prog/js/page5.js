@@ -99,29 +99,15 @@ function executeCode(index, e) {
 
         success: function(response) {
             $(".output").text(response)
+            var t = document.getElementById("test-"+index);
             if (response == "Le test est bon\n") {
-                console.log("ok");
-                var elem = document.createElement("div");
-                elem.classList.add("tick");
-                e.parentNode.appendChild(elem);
+                t.classList.remove("x");
+                t.classList.add("tick");
 
             } else {
-                var list = e.parentNode.children;
-                console.log(list);
-                for (item of list) {
-                    if (item.classList.contains("tick")) {
-                        e.parentNode.remove(item);
-                    }
-                }
+                t.classList.remove("tick");
+                t.classList.add("x");
             }
         }
     })
 }
-
-
-$('.output').bind('DOMSubtreeModified', function() {
-    var d = document.querySelector(".output");
-    if (d.innerHTML == "Exercice fini :)\n") {
-        console.log("stop");
-    }
-});
