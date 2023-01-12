@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn = new PDO('sqlite:../db/bd_marche.sqlite3');
+$conn = new PDO('sqlite:../db/javapprendre.sqlite3');
 
 $utilisateur = $_SESSION['pseudo'];
 

@@ -1,6 +1,6 @@
 <?php
 
-$pdo = new PDO('sqlite:db/bd_marche.sqlite3');
+$pdo = new PDO('sqlite:db/javapprendre.sqlite3');
 
 try {
     $res = $pdo -> query('select * from exos');

@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn = new PDO('sqlite:db/bd_marche.sqlite3');
+$conn = new PDO('sqlite:db/javapprendre.sqlite3');
 
 // Récupération de la variable "data" envoyée par la fonction AJAX
 $temps = $_POST['data'];

@@ -1,6 +1,6 @@
 <?php
 session_start();
-$pdo = new PDO('sqlite:db/bd_marche.sqlite3');
+$pdo = new PDO('sqlite:db/javapprendre.sqlite3');
 // Requête pour récupérer les données de la table
 
 $membres = $pdo->prepare('select pseudo, temps from membre, score where membre.mem_id=score.mem_id ORDER BY temps ASC');
