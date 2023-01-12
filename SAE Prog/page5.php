@@ -1,6 +1,6 @@
 <?php
 
-$pdo = new PDO('sqlite:db/javapprendre.sqlite3');
+$pdo = new PDO('sqlite:db/exos_database.db');
 
 try {
     $res = $pdo -> query('select * from exos');
@@ -22,6 +22,10 @@ catch(PDOException $e)
   //splitting the test files into an array:
   $files = explode("\n", $chemin_fichier_test);
 
+  $indices = $rows[$idExo]['indices'];
+
+  $indices = explode('|', $indices);
+
 ?>
 
 <!DOCTYPE html>
@@ -30,10 +34,12 @@ catch(PDOException $e)
     <title>Page 5</title>
     <link rel =  "stylesheet" type = "text/css" href = "css/page4.css">
     <link rel =  "stylesheet" type = "text/css" href = "prism/prism.css">
-    <link rel =  "stylesheet" type = "text/css" href = "css/page5.css">
     
     <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
          rel = "stylesheet">
+    
+    <link rel =  "stylesheet" type = "text/css" href = "css/page5.css">
+     
     <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script>
@@ -47,7 +53,7 @@ catch(PDOException $e)
        autoOpen: false, 
        modal: true,
        draggable: false,
-       height: 600,
+       height: 400,
        width: 600,
        resizeable: false,
        buttons: {
@@ -81,16 +87,10 @@ catch(PDOException $e)
           
            <div name="affi" id="time"></div>  
           <div id = "nom_exo">
-            <?php echo $idExo." ".$rows[$idExo]['nom_exo'] ; ?>
+            <?php 
+            $ind = $idExo + 1;
+            echo $ind.". ".$rows[$idExo]['description_exo'] ; ?>
           </div>
-
-         
-
-          <div id = "dialog-4" title = "Indice exo">
-            <?php echo $rows[$idExo]['indice'] ; ?>
-          </div>
-
-     
                 
                 <!--<a href="#" class="bn14">Indice</a>-->
         </div>
@@ -119,8 +119,9 @@ catch(PDOException $e)
    <div class = "test float-child">
    <?php 
       for($x = 1; $x < $numFichiersTests; ++$x)
-        { 
-          echo '<br><div class = "test-child">Test ' . $files[$x] .'<div id = "dialog-'.$x.'" title = "Indice exo"></div> <button id = "opener-'.$x.'" class = "bn15">Voir indice</button><button class = "bn15" onclick = "executeCode('.$x. ', this)">Run</button></div><br>';
+        {
+          $indice = $indices[$x - 1]; 
+          echo '<br><div class = "test-child">Test ' . $files[$x] .'<div class = "sign" id = "test-'.$x.'"></div><div id = "dialog-'.$x.'" title = "Indice exo">'.$indice.'</div> <button id = "opener-'.$x.'" class = "bn15">Voir indice</button><button class = "bn15" onclick = "executeCode('.$x. ', this)">Run</button></div><br>';
         }
       ?>
 
