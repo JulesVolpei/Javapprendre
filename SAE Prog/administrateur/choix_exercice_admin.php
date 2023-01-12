@@ -74,7 +74,7 @@ try {
               </button>
               </a>
               
-              <a href="../page5.php?id='.$x.'"><button class="learn-more" id="button1">
+              <a href="../exercice.php?id='.$x.'"><button class="learn-more" id="button1">
               <span class="circle" aria-hidden="true">
                 <span class="icon arrow"></span>
               </span>
