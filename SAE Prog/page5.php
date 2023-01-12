@@ -1,6 +1,6 @@
 <?php
 
-$pdo = new PDO('sqlite:db/exos_database.db');
+$pdo = new PDO('sqlite:db/javapprendre.sqlite3');
 
 try {
     $res = $pdo -> query('select * from exos');
@@ -21,7 +21,6 @@ catch(PDOException $e)
   $chemin_fichier_test = $rows[$idExo]['fichier_test'];
   //splitting the test files into an array:
   $files = explode("\n", $chemin_fichier_test);
-
   $indices = $rows[$idExo]['indices'];
 
   $indices = explode('|', $indices);

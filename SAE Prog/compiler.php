@@ -1,10 +1,9 @@
 <?php
-    $pdo = new PDO('sqlite:db/exos_database.db');
+    $pdo = new PDO('sqlite:db/javapprendre.sqlite3');
 
     try {
         $res = $pdo -> query('select * from exos');
         $rows = $res->fetchAll(PDO::FETCH_ASSOC);
-            
     }
 
     catch(PDOException $e)
@@ -15,9 +14,9 @@
     $code = $_POST['code'];
     $idExo = $_POST['id'] - 1;
     $index = $_POST['index'];
-    
+    //echo $code;
     $chemin_fichier_test = $rows[$idExo]['fichier_test'];
-    
+
     $files = explode("\n", $chemin_fichier_test);
      
     $nouveau_chemin_fichier_test = $files[$index] . ".java";
