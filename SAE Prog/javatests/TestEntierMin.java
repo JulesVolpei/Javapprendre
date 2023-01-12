@@ -136,6 +136,7 @@ public class TestEntierMin {
         Tableaux tableauTest = new Tableaux(listeTest);
         testIndiceMinTableau(tableauTest);
 
-        System.out.println("Le tableau renvoie le bon entier minimum !");
+        System.out.println("Le test est bon");
+
     }
 }

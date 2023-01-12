@@ -137,6 +137,7 @@ public class TestMoyenne {
         Tableaux tableauTest = new Tableaux(listeTest);
         testTableauRenvoieMoyenne(tableauTest);
 
-        System.out.println("Le tableau renvoie la bonne moyenne !");
+        System.out.println("Le test est bon");
+
     }
 }

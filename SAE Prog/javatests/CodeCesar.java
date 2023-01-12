@@ -30,8 +30,7 @@ public class CodeCesar {
     public static void main(String[] args) {
         CodeCesar codeCesar = new CodeCesar();
         String messageCommunique = codeCesar.chiffrement(codeCesar.messageSecret);
-        //System.out.println(messageCommunique);
+        System.out.println(messageCommunique);
         
     }
 }
- 

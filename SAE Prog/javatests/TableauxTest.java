@@ -113,6 +113,6 @@ public class TableauxTest {
         TestEntierMin.testIndiceMinTableau(tableauTest);
         TestEntierMax.testIndiceMaxTableau(tableauTest);
 
-        System.out.println("Exercice réussi !");
+        System.out.println("Exercice fini :)");
     }
 }

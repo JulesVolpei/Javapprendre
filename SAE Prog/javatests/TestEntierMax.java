@@ -135,6 +135,6 @@ public class TestEntierMax {
         Tableaux tableauTest = new Tableaux(listeTest);
         testIndiceMaxTableau(tableauTest);
 
-        System.out.println("Le tableau renvoie le bon entier maximum !");
+        System.out.println("Le test est bon");
     }
 }

@@ -57,6 +57,6 @@ public class TestCodeCesar {
         TestGetterMessageSecret.testGetterMessageSecret();
         TestChiffrement.testFonctionnementChiffrement();
 
-        System.out.println("Exercice fini");
+        System.out.println("Exercice fini :)");
     }
 }
