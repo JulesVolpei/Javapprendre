@@ -40,19 +40,12 @@ try {
 <body>
   <section class="navigation">
     <div class="nav-container">
-      <div class="brand">
-        <a href="index.php">Logo</a>
+      <a href="index.php"><img src="images/logo.png" alt="Logo"></a>
+      <div class="bouttons">
+        <a href="formulaire/deconnexion.php" class="bn14">Déconnexion</a>
+        <a href="administrateur/admin.php" class="bn14">Admin</a>
       </div>
-      <nav>
-        <ul class="nav-list">
 
-          <a href="formulaire/deconnexion.php" class="bn14">Déconnexion</a>
-          <a href="administrateur/admin.php" class="bn14">Admin</a>
-
-
-          </li>
-        </ul>
-      </nav>
     </div>
   </section>
   <!-- Slider main container -->
