@@ -73,9 +73,9 @@ catch(PDOException $e)
     <section class="navigation">
         <div class="nav-container">
           
-          <div class="brand">
-            <a href="#!">Logo</a>
-          </div>
+        <div class="brand">
+          <a href="../index.php"><img src="../images/logo.png" alt="Logo"></a>
+        </div>
           
            <div name="affi" id="time"></div>  
           <div id = "nom_exo">
