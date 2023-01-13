@@ -189,6 +189,12 @@ nav ul li a:visited:hover {
     color: #252525;
     overflow: auto;
     margin-left: 10px;
+    letter-spacing: 0.1em;
+    line-height: 1.3em;
+    text-decoration: none;
+    position: relative;
+    font-size: 10pt;
+    font-family: Consolas, monaco, monospace;
 }
 
 .visuel {
@@ -210,6 +216,12 @@ nav ul li a:visited:hover {
     margin-left: 10px;
     color: #252525;
     overflow: auto;
+    letter-spacing: 0.1em;
+    line-height: 1.3em;
+    text-decoration: none;
+    position: relative;
+    font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: justify;
 }
 
 .test {
@@ -221,6 +233,8 @@ nav ul li a:visited:hover {
     margin-top: 30px;
     color: red;
     overflow: auto;
+    font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: left;
 }
 
 .float-child {
