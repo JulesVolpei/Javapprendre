@@ -67,15 +67,7 @@ try {
       <?php
       for ($x = 0; $x < $number_of_rows; ++$x)
         echo '<div class = "swiper-slide c1">' . $rows[$x]['nom_exo'] . '<br>' . '<br>' . '<br>' . $rows[$x]['description_exo'] . '<br><br><br><br><br><br><br><br><br><br><br><br>' .
-          ' <a href="modifier.php?id='.$rows[$x]['id_exo'].'"><button class="learn-more" id="button1">
-              <span class="circle" aria-hidden="true">
-                <span class="icon arrow"></span>
-              </span>
-              <span class="button-text">Modifier</span>
-              </button>
-              </a>
-              
-              <a href="../exercice.php?id='.$x.'"><button class="learn-more" id="button1">
+          '   <a href="../exercice.php?id='.$x.'"><button class="learn-more" id="button1">
               <span class="circle" aria-hidden="true">
                 <span class="icon arrow"></span>
               </span>
