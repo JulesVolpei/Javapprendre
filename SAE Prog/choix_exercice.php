@@ -41,6 +41,7 @@ try {
   <section class="navigation">
     <div class="nav-container">
       <a href="index.php"><img src="images/logo.png" alt="Logo"></a>
+      
       <div class="bouttons">
         <a href="formulaire/deconnexion.php" class="bn14">Déconnexion</a>
         <a href="administrateur/admin.php" class="bn14">Admin</a>
