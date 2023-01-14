@@ -106,21 +106,31 @@ function executeCode(index, e) {
             console.log(nom);
             var image = document.querySelectorAll(".visuel")[0];
             var t = document.getElementById("test-"+index);
+            if(nom != "Pirate")
+            {
             if (response == "Le test est bon\n") {
-                t.classList.remove("x");
-                t.classList.add("tick");
                 image.style.backgroundImage = "url(images/" + nom + "Success.png)";
+                if(t != null)
+                {    
+                    t.classList.remove("x");
+                    t.classList.add("tick");
+                }
 
             } 
             else if(response != "Exercice fini :)\n"){
-                t.classList.remove("tick");
-                t.classList.add("x");
                 image.style.backgroundImage = "url(images/" + nom + "Fail.png)";
+                if(t != null)
+                {   
+                    t.classList.remove("tick");
+                    t.classList.add("x");
+                }
+                
             }
             else if(response == "Exercice fini :)\n")
             {
                 image.style.backgroundImage = "url(images/" +nom+ ".png)";
             }
         }
+    }
     })
 }
