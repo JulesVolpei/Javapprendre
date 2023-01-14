@@ -31,12 +31,22 @@
     fclose($programFile);
     /*compile*/
     //Compiling source file into a class file that can run on Java Virtual Machine
-    shell_exec("javac ". $filePath);
+    //shell_exec("javac ". $filePath);
     //echo $filePath;
     
-    //ERORI DE COMPILARE:
-    $output = shell_exec("java " . $filePath. " 2>&1");
+
+    //$output = shell_exec("java " . $filePath. " 2>&1");
     //echo $output;
+    $output = null;
+    //Compiling source file into a class file that can run on Java Virtual Machine
+    exec('javac ' .$filePath. ' && java '. $filePath, $output, $returnValue);
+    if ($returnValue != 0) { //compilation error:
+        //compiling and running again this time using shell_exec to output the error:
+        shell_exec("javac ". $filePath);
+        $output = shell_exec("java " . $filePath. " 2>&1");
+        echo $output;
+    } 
+    else {
     $nouveau_chemin_fichier_test = "javatests/" . $nouveau_chemin_fichier_test;
     
     //Run code and put answer in the output div
@@ -46,4 +56,5 @@
     //Run code and put answer in the output div
     $output = shell_exec("java " . $nouveau_chemin_fichier_test. " 2>&1"); 
     echo $output;
+    }
 ?>
