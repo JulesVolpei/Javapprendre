@@ -11,7 +11,7 @@ Nav-bar:
 */
 
 .navigation {
-      height: 70px;
+      height: 80px;
       background: #707d9d;
 }
 
@@ -32,6 +32,10 @@ Nav-bar:
 
 .bouttons {
       margin-top: 15px;
+}
+
+.bouttonsAdmin {
+      margin-top: 2.5px;
 }
 
 nav {
