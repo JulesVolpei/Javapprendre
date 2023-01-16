@@ -104,5 +104,6 @@ public class TestAfficherLeMotALEnvers {
         }
 
         testAffichageMotAEnvers();
+        System.out.println("Le test est bon");
     }
 }

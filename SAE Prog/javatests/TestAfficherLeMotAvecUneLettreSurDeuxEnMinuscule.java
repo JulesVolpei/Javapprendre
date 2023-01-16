@@ -123,5 +123,6 @@ public class TestAfficherLeMotAvecUneLettreSurDeuxEnMinuscule {
         }
 
         testAffichageDuMotAvecUneLettreSurDeuxEnMinuscule();
+        System.out.println("Le test est bon");
     }
 }

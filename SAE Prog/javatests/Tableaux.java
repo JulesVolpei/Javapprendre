@@ -22,21 +22,30 @@ public class Tableaux {
     }
 
     public double moyenneTableau() {
-        return 0;
+        double sum = 0;
+        for(Integer element : this.tableauEntiers)
+        {
+            sum += element;
+        }
+
+        double moy = sum / this.tableauEntiers.size();
+        return moy;
     }
 
 
     public int entierMax() {
-        return 0;
+        return Collections.max(this.tableauEntiers);
     }
 
     public int entierMin() {
-        return 0;
+        return Collections.min(this.tableauEntiers);
     }
 
     public static void main(String[] args) {
         Tableaux tab1 = new Tableaux();
         /* Ne pas supprimer */ System.out.println(tab1.getTableauEntiers()); /* Ne pas supprimer */
+        tab1.triTableauCroissant();
+        System.out.println(tab1.getTableauEntiers());
     }
 
 }

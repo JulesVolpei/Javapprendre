@@ -73,6 +73,6 @@ public class TestManipulationString {
         TestAfficherLeMotEnMinuscule.testAffichageMotEnMinuscule(getLine());
         TestAfficherLeMotAvecUneLettreSurDeuxEnMinuscule.testAffichageDuMotAvecUneLettreSurDeuxEnMinuscule(getLine());
 
-        System.out.println("Exercice fini");
+        System.out.println("Exercice fini :)");
     }
 }

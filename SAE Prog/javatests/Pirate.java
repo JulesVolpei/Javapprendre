@@ -35,11 +35,11 @@ public class Pirate {
         Pirate p = new Pirate("Clemenceau", 1.62, 48, 'J');
         /* Afficher le nom du pirate */
         System.out.println(p.getNomPirate());
-        /* Afficher la taille du pirate */
+        // Afficher la taille du pirate /
         System.out.println(p.getTaillePirate());
-        /* Afficher la pointure du pirate */
+        // Afficher la pointure du pirate /
         System.out.println(p.getPointurePirate());
-        /* Afficher la lettre du pirate */
+        // Afficher la lettre du pirate */
         System.out.println(p.getLettrePirate());
     }
 }

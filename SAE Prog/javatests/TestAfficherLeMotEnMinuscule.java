@@ -96,5 +96,6 @@ public class TestAfficherLeMotEnMinuscule {
         }
 
         testAffichageMotEnMinuscule();
+        System.out.println("Le test est bon");
     }
 }

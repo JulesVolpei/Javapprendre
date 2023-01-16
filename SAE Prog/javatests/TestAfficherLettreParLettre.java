@@ -107,5 +107,6 @@ public class TestAfficherLettreParLettre {
         }
 
         testAffichageLettreParLettre();
+        System.out.println("Le test est bon");
     }
 }

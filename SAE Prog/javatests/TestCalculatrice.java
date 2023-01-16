@@ -17,7 +17,7 @@ public class TestCalculatrice {
     }
 
     public static void erreurPourMain() throws Exception {
-        if (mainDansCalculatrice()) {
+        if (!mainDansCalculatrice()) {
             throw new Exception("Pas de main dans le programme");
         }
     }
