@@ -33,7 +33,7 @@ catch(PDOException $e)
 <html>
     <head>
     <title>Exercice</title>
-    <link rel =  "stylesheet" type = "text/css" href = "css/page4.css">
+    <link rel =  "stylesheet" type = "text/css" href = "css/choixExercice.css">
     <link rel =  "stylesheet" type = "text/css" href = "prism/prism.css">
     
     
