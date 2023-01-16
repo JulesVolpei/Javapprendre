@@ -93,7 +93,6 @@ try {
     <div class="swiper-button-next"></div>
   </div>
 
-
   <div class="wrapper">
     <div id="cent">
       <a href="../aPropos.html" class="bn14 btn-footer-right">À propos</a>
