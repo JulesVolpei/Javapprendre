@@ -25,7 +25,7 @@ $rows = $res->fetchAll(PDO::FETCH_ASSOC);
         <div class="nav-container">
 
             <div class="brand">
-                <a href="../choix_exercice.php"><img src="../images/logo.png" alt="Logo"></a>
+                <a href="../choix_exercice.php"><img src="images/logo.png" alt="Logo"></a>
                 
             </div>
             
