@@ -63,7 +63,7 @@ try {
       <a href="index.php"><img src="images/logo.png" alt="Logo"></a>
       
       <div class="bouttons">
-         <a href="administrateur/admin.php" class="bn14">Progression :  <?php echo $count; ?>/<?php echo $couunt; ?> </a>
+         <a class="bn14">Progression :  <?php echo $count; ?>/<?php echo $couunt; ?> </a>
         <a href="formulaire/deconnexion.php" class="bn14">Déconnexion</a>
         <a href="administrateur/admin.php" class="bn14">Admin</a>
       </div>
