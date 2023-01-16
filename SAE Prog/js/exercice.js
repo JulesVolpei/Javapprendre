@@ -122,7 +122,7 @@ function executeCode(index, e) {
                     }
 
                 } else if (response == "Exercice fini :)\n") {
-                    image.style.backgroundImage = "url(images/" + nom + ".png)";
+                    image.style.backgroundImage = "url(images/" + nom + "Success.png)";
                 }
             }
             //}
