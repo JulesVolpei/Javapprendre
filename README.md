@@ -1,5 +1,5 @@
 # Javapprendre
-Un projet magnifique permettant d'apprendre un langage magnifique réalisé par [Luciu Stefan](https://github.com/LiciuStefan), [Jules Volpei](https://github.com/JulesVolpei), [Rayane Sabi](https://github.com/rayanesabi), [Sofian Zerkouni](https://github.com/sofian13) et [Léo Veysseyre](https://github.com/LeoVeysseyre84).
+Un projet magnifique permettant d'apprendre un langage magnifique réalisé par [Liciu Stefan](https://github.com/LiciuStefan), [Jules Volpei](https://github.com/JulesVolpei), [Rayane Sabi](https://github.com/rayanesabi), [Sofian Zerkouni](https://github.com/sofian13) et [Léo Veysseyre](https://github.com/LeoVeysseyre84).
 
 
 ## Languages utilisés
