@@ -6,7 +6,8 @@ session_start();
 <html lang="fr">
 	<head>
 	<title>Connexion</title>
-	<link rel="icon" href="https://1000logos.net/wp-content/uploads/2020/09/Java-Emblem.jpg">
+	<link rel="icon" href="../images/logo.ico">
+	<meta name="Connexion" content="Page de connexion" />
 		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
 		<link rel="stylesheet" type="text/css" href="../css/formulaire.css"/>
 	</head>

@@ -4,7 +4,7 @@
 session_start();
 
 require_once '../conn.php';
-
+//Mot de passe fort
 function checkPasswordStrength($motdepasse)
 {
 	$uppercase = preg_match('@[A-Z]@', $motdepasse);
