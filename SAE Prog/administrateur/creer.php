@@ -8,7 +8,7 @@ session_start();
     <title>Créer exercice </title>
     <link rel="icon" href="https://1000logos.net/wp-content/uploads/2020/09/Java-Emblem.jpg">
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="../css/creation_modif.css" />
+    <link rel="stylesheet" type="text/css" href="../css/creation.css" />
 </head>
 
 <body>
