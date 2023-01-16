@@ -23,11 +23,11 @@ $stmt->execute();
 $row = $stmt->fetch();
 $count = $row['ti'];
 
-$testo = 'select count(id_exo) pet from exos';
+$testo = 'select count(id_exo) compt from exos';
 $tooo = $conn->prepare($testo);
 $tooo->execute();
 $roow = $tooo->fetch();
-$couunt = $roow['pet'];
+$couunt = $roow['compt'];
 
 
 try {

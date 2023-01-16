@@ -15,6 +15,7 @@ catch(PDOException $e)
 
   session_start();
   $idExo = $_GET['id'];
+  $_SESSION['id'] = $idExo;
   $numFichiersTests = $rows[$idExo]['numFichiersTests'];
     //getting all the test files as a single string:
 
