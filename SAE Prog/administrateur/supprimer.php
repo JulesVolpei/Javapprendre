@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <?php
 //starting the session
@@ -15,7 +17,7 @@ $_SESSION['id'] = $idExo;
     <link rel="stylesheet" type="text/css" href="../css/supprimer.css" />
 </head>
 
-<form method="POST" action="modification_exercice.php">
+<form method="POST" action="creer_supp.php">
  
 
  <div class="button">

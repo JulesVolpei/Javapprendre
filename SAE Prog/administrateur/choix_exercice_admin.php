@@ -29,10 +29,9 @@ try {
   <meta charset="UTF-8">
   <meta name="viewport" content="width = device-width, initial-scale = 1.0">
   <title>Page 4</title>
-  <link rel="stylesheet" type="text/css" href="../css/page4.css">
+  <link rel="stylesheet" type="text/css" href="../css/choixExercice.css">
   <link rel="stylesheet" type="text/css" href="../css/swiper.css">
-  <script src="../js/page4.js"></script>
-  <link rel="stylesheet" href="../css/test2.css">
+  <link rel="stylesheet" href="../css/popup.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.css" />
 </head>
 
@@ -114,7 +113,7 @@ try {
 
   </div>
   <!--Script-->
-  <script src="../js/test2.js"></script>
+  <script src="../js/popup.js"></script>
 </body>
 
 </html>
