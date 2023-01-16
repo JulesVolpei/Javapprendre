@@ -28,17 +28,26 @@ if(ISSET($_POST['creer'])){ //Vérifie si l'utilisateur a appuyé sur le bouton 
     $nom = $_POST['nom'];
     $description = $_POST['description'];
     $contenuExo = $_POST['contenu'];
-    $filePath = "../javatests/" . $nom;
+    $obj = $_POST['objectifs'];
+    $test = $_POST['testsUnitaires'];
+    $nom_test = "Test" . $nom;
+    $filePath = "../javatests/" . $nom . ".java";
+    $filesPath = "../javatests/" . "Test" . $nom . ".java"; 
     $programFile = fopen($filePath, "w") or die("Unable to open file!");
+    $programFiles = fopen($filesPath, "w") or die("Unable to open file!");
     fwrite($programFile, $contenuExo);
-    fclose($programFile); 
+    fwrite($programFiles, $test);
+    fclose($programFile);
+    fclose($programFiles);
    
-    $query = "INSERT INTO exos ( nom_exo,description_exo,text_de_base) VALUES ( :nom, :description, :contenu )"; //On insert dans la table exos le nom de l'exo, la description et le contenu
+    $query = "INSERT INTO exos ( nom_exo,description_exo,objectif_exo,text_de_base,fichier_test, numFichiersTests) VALUES ( :nom, :description, :objectifs ,:contenu, :nom_test, 1)"; //On insert dans la table exos le nom de l'exo, la description et le contenu
     $stmt = $conn->prepare($query);
     $stmt -> bindParam( ':nom', $nom);
-    $stmt->bindParam(':contenu', $contenuExo);
     $stmt -> bindParam( ':description', $description);
-    $stmt->execute();    
+    $stmt -> bindParam( ':objectifs', $obj);
+    $stmt->bindParam(':contenu', $contenuExo);
+    $stmt -> bindParam( ':nom_test', $nom_test);
+    $stmt->execute();
     
     echo "Succès ! L'exercice vient d'être créé. Redirection automatique dans 3 secondes ";
 
