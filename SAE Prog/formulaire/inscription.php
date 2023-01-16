@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <?php
 //starting the session
 session_start();
@@ -98,6 +98,21 @@ session_start();
 				}
 				?>
 
+<?php
+
+//Regarde si la session  'erreur3' est set. Erreur3 est le message d'erreur lorsqu'il y a déjà l'email mis dans la base de donnée 
+if (isset($_SESSION['erreur4'])) {
+?>
+	<!-- Display registration success message -->
+	<div class="alert alert-success"><?php echo $_SESSION['erreur4'] ?></div>
+
+
+<?php
+
+	unset($_SESSION['erreur4']);
+}
+?>
+
 				<div class="button">
 					<div class="inner"></div>
 					<button name="enregistrement"> S'enregistrer</button>
@@ -114,4 +129,4 @@ session_start();
 </body>
 <script type="text/javascript" src="https://apiv2.popupsmart.com/api/Bundle/396367" async></script>
 
-</html>
+</html> 
