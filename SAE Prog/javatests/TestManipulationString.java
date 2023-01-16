@@ -43,6 +43,11 @@ public class TestManipulationString {
     }
 
     public static void testPremierPrintEstLeMot() throws Exception {
+        try {
+            String test = getLine().get(0);
+        } catch(Exception e) {
+            throw new Exception("Il faut afficher le mot en tout premier. \n Attendu : System.out.println(exercice.mot);");
+        }    
         if (!(getLine().get(0).equals(GenererMot.getMot()))) {
             throw new Exception("Il faut afficher le mot en tout premier. \n Attendu : System.out.println(exercice.mot);");
         }
