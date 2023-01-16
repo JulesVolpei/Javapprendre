@@ -55,6 +55,11 @@ public class TestAfficherLeMotEnMinuscule {
         if (!(Class.forName("javatests.ManipulationString").getMethod("afficherLeMotEnMinuscule", String.class).getReturnType().toString().equals("void"))) {
             throw new Exception("La méthode afficherLeMotEnMinuscule ne doit rien renvoyer");
         }
+        try {
+            String testMot = getLine().get(7);
+        } catch (Exception e) {
+            throw new Exception("Il faut afficher le mot en minuscule pour que la méthode fonctionne.");
+        }
 
         if (!getLine().get(7).equals(GenererMot.getMot().toLowerCase())) {
             throw new Exception("Le mot n\'est pas affiché en minuscule. \n Attendu : " + GenererMot.getMot().toLowerCase() + "\n Reçu : " + getLine().get(7));
@@ -91,7 +96,5 @@ public class TestAfficherLeMotEnMinuscule {
         }
 
         testAffichageMotEnMinuscule();
-        System.out.println("Le test est bon");
-
     }
 }

@@ -58,6 +58,11 @@ public class TestAfficherLettreParLettre {
 
         for (int i = 2; i < liste.get(0).length(); i += 1) {
             char test = GenererMot.getMot().charAt(i - 2);
+            try {
+                char testLettre = liste.get(i).charAt(0);
+            } catch (Exception e) {
+                throw new Exception("Le mot lettre par lettre doit être correctement affiché pour que la méthode fonctionne.");
+            }
             if (test != liste.get(i).charAt(0)) {
                 throw new Exception("La lettre affichée n\'est pas la bonne. \n Attendu : " + test + "\n Reçu : " + liste.get(i).charAt(0));
             }
@@ -79,6 +84,11 @@ public class TestAfficherLettreParLettre {
 
         for (int i = 2; i < getLine().get(0).length(); i += 1) {
             char test = GenererMot.getMot().charAt(i - 2);
+            try {
+                char testLettre = getLine().get(i).charAt(0);
+            } catch (Exception e) {
+                throw new Exception("Le mot lettre par lettre doit être correctement affiché pour que la méthode fonctionne.");
+            }
             if (test != getLine().get(i).charAt(0)) {
                 throw new Exception("La lettre affichée n\'est pas la bonne. \n Attendu : " + test + "\n Reçu : " + getLine().get(i).charAt(0));
             }
@@ -97,7 +107,5 @@ public class TestAfficherLettreParLettre {
         }
 
         testAffichageLettreParLettre();
-        System.out.println("Le test est bon");
-
     }
 }

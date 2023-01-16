@@ -67,6 +67,11 @@ public class TestAfficherLeMotAvecUneLettreSurDeuxEnMinuscule {
             }
         }
         String motEnDemiMinuscule = test.toString();
+        try {
+            String testMot = getLine().get(8);
+        } catch (Exception e) {
+            throw new Exception("Il faut afficher le mot avec  une lettre sur deux en minuscule pour que la méthode fonctionne.");
+        }
         if (!getLine().get(8).equals(motEnDemiMinuscule)) {
             throw new Exception("Le mot affiché n\'est pas bon. \n Attendu : " + motEnDemiMinuscule + "\n Reçu : " + getLine().get(8));
         }
@@ -95,6 +100,11 @@ public class TestAfficherLeMotAvecUneLettreSurDeuxEnMinuscule {
                 minuscule = true;
             }
         }
+        try {
+            String testMot = liste.get(8);
+        } catch (Exception e) {
+            throw new Exception("Il faut afficher le mot avec  une lettre sur deux en minuscule pour que la méthode fonctionne.");
+        }
         String motEnDemiMinuscule = test.toString();
         if (!liste.get(8).equals(motEnDemiMinuscule)) {
             throw new Exception("Le mot affiché n\'est pas bon. \n Attendu : " + motEnDemiMinuscule + "\n Reçu : " + liste.get(8));
@@ -113,7 +123,5 @@ public class TestAfficherLeMotAvecUneLettreSurDeuxEnMinuscule {
         }
 
         testAffichageDuMotAvecUneLettreSurDeuxEnMinuscule();
-        System.out.println("Le test est bon");
-
     }
 }

@@ -57,6 +57,11 @@ public class TestAfficherLeMotALEnvers {
         StringBuilder motALEnvers = new StringBuilder();
         motALEnvers.append(GenererMot.getMot());
         String test = motALEnvers.reverse().toString();
+        try {
+            String testPourSavoirSiGetLinePasVide = liste.get(1);
+        } catch (Exception e ) {
+            throw new Exception("Veuiller afficher le mot à l\'envers pour que la méthode fonctionne.");
+        }
         if (!(liste.get(1).equals(test))) {
             throw new Exception("Le mot n\'est pas à l\'envers. \n Attendu : " + test + "\n Reçu : " + liste.get(1));
         }
@@ -77,6 +82,11 @@ public class TestAfficherLeMotALEnvers {
         StringBuilder motALEnvers = new StringBuilder();
         motALEnvers.append(GenererMot.getMot());
         String test = motALEnvers.reverse().toString();
+        try {
+            String testPourSavoirSiGetLinePasVide = getLine().get(1);
+        } catch (Exception e ) {
+            throw new Exception("Veuiller afficher le mot à l\'envers pour que la méthode fonctionne.");
+        }
         if (!(getLine().get(1).equals(test))) {
             throw new Exception("Le mot n\'est pas à l\'envers. \n Attendu : " + test + "\n Reçu : " + getLine().get(1));
         }
@@ -94,6 +104,5 @@ public class TestAfficherLeMotALEnvers {
         }
 
         testAffichageMotAEnvers();
-        System.out.println("Le test est bon");
     }
 }
