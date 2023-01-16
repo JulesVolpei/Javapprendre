@@ -7,118 +7,154 @@
 }
 
 body {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    font-family: sans-serif;
-    font-weight: bold;
-    justify-content: center;
-    background-size: cover;
-    background-position: center;
-    background: url(https://wonderfulengineering.com/wp-content/uploads/2014/04/code-wallpaper-38.jpg);
+  font-family: Consolas, monaco, monospace;
+  font-weight: 700;
+  font-size: large;
+  background-image: url(../images/pageACarreaux.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
+  margin: 0;
+  color: black;
 }
 
-.col-md-6.well {
-    position: relative;
-    background: white;
-    padding: 60px 40px;
+textarea {
+  resize: none;
+  font-size: 12pt;
+  border: 2px solid rgb(172, 172, 172);
+  box-shadow: 1px 1px 1px #999;
+  padding: 5px 8px 5px 8px;
 }
 
-h3 {
-    font-size: 35px;
-    margin-bottom: 60px;
-    font-family: 'Montserrat', sans-serif;
+label {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 8px;
+  border: 1px solid black;
 }
 
-.form-group,
-form .button {
-    margin: 50px 0;
-    position: relative;
-    height: 50px;
-    width: 100%;
+.flex-container1 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items:center ;
+  width: 100%;
+  height: 130px;
 }
 
-.form-group input {
-    height: 100%;
-    width: 100%;
-    border: 1px solid silver;
-    padding-left: 15px;
-    outline: none;
-    font-size: 19px;
-    transition: .4s;
+.flex-container1 textarea[id="titre"]{
+  width: 280px;
+  height: 300px;
+  padding: 10px;
 }
 
-input:focus {
-    border: 1px solid #1DA1F2;
+.flex-container2 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items:center ;
+  width: 100%;
+  height: 200px;
+  margin-top: 40px;
 }
 
-.form-group label,
-span.show {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+.flex-container2 textarea[id="description"]{
+  width: 70%;
+  height: 80%;
 }
 
-.form-group label {
-    left: 15px;
-    pointer-events: none;
-    color: grey;
-    font-size: 18px;
-    transition: .4s;
+.flex-container3 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items:center ;
+  width: 100%;
+  height: 300px;
+  margin-top: 40px;
 }
 
-span.show {
-    right: 20px;
-    color: #111;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    user-select: none;
-    visibility: hidden;
-    font-family: 'Open Sans', sans-serif;
+.flex-container3 textarea[id="objectifs"]{
+  width: 70%;
+  height: 80%;
 }
 
-input:valid~span.show {
-    visibility: visible;
-}
-
-input:focus~label,
-input:valid~label {
-    transform: translateY(-33px);
-    background: white;
-    font-size: 16px;
-    color: #1DA1F2;
-}
-
-form .button {
-    margin-top: 30px;
-    overflow: hidden;
-    z-index: 111;
-}
-
-.button .inner {
-    position: absolute;
-    height: 100%;
-    width: 300%;
-    left: -100%;
-    z-index: -1;
-    transition: all .4s;
-    background: -webkit-linear-gradient(right, #0af0dd, #020202, #0af0dd, #000000);
-}
-
-.button:hover .inner {
-    left: 0;
+.button {
+  margin-top: 30px;
+  overflow: hidden;
+  z-index: 111;
 }
 
 .button button {
-    width: 100%;
-    height: 100%;
-    border: none;
-    background: none;
-    outline: none;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: none;
+  outline: none;
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.button :hover{
+  transition: 0.8s;
+  color: #52D1DC;
+}
+
+.flex-container4 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items:center ;
+  width: 100%;
+  height: 500px;
+}
+
+.flex-container4 textarea[id="contenu"]{
+  width: 85%;
+  height: 70%;
+}
+
+.flex-container5 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items:center ;
+  width: 100%;
+  height: 400px;
+}
+
+.flex-container5 textarea[id="testsUnitaires"]{
+  width: 85%;
+  height: 55%;
+}
+
+.right-flex-box {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+}
+
+.left-flex-box {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+}
+
+.all-container {
+  width: 100%;
+  display :flex;
+}
+
+.left-flex-box,
+.right-flex-box {
+  flex: 1;
+  margin-right: 25px;
+  margin-left: 25px;
 }
