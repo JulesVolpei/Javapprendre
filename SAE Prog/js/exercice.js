@@ -34,7 +34,7 @@ Used css and javascript to make it look like we are editing only one element
 window.onload = function() {
     var nom = document.getElementById("nom_exo").innerText.substring(12).split(' ').join('');
     var image = document.querySelectorAll(".visuel")[0];
-    image.style.backgroundImage = "url(images/" +nom+ ".png)";
+    image.style.backgroundImage = "url(images/" + nom + ".png)";
     text_base = document.getElementById("editing").value;
     console.log(text_base);
     let result_element = document.querySelector("#highlighting-content");
@@ -101,36 +101,30 @@ function executeCode(index, e) {
         },
 
         success: function(response) {
-            $(".output").text(response)
-            var nom = document.getElementById("nom_exo").innerText.substring(12).split(' ').join('');
-            console.log(nom);
-            var image = document.querySelectorAll(".visuel")[0];
-            var t = document.getElementById("test-"+index);
-            if(nom != "Pirate")
-            {
-            if (response == "Le test est bon\n") {
-                image.style.backgroundImage = "url(images/" + nom + "Success.png)";
-                if(t != null)
-                {    
-                    t.classList.remove("x");
-                    t.classList.add("tick");
-                }
+                $(".output").text(response)
+                var nom = document.getElementById("nom_exo").innerText.substring(12).split(' ').join('');
+                console.log(nom);
+                var image = document.querySelectorAll(".visuel")[0];
+                var t = document.getElementById("test-" + index);
+                //if (nom != "Pirate") {
+                if (response == "Le test est bon\n") {
+                    image.style.backgroundImage = "url(images/" + nom + "Success.png)";
+                    if (t != null) {
+                        t.classList.remove("x");
+                        t.classList.add("tick");
+                    }
 
-            } 
-            else if(response != "Exercice fini :)\n"){
-                image.style.backgroundImage = "url(images/" + nom + "Fail.png)";
-                if(t != null)
-                {   
-                    t.classList.remove("tick");
-                    t.classList.add("x");
+                } else if (response != "Exercice fini :)\n") {
+                    image.style.backgroundImage = "url(images/" + nom + "Fail.png)";
+                    if (t != null) {
+                        t.classList.remove("tick");
+                        t.classList.add("x");
+                    }
+
+                } else if (response == "Exercice fini :)\n") {
+                    image.style.backgroundImage = "url(images/" + nom + ".png)";
                 }
-                
             }
-            else if(response == "Exercice fini :)\n")
-            {
-                image.style.backgroundImage = "url(images/" +nom+ ".png)";
-            }
-        }
-    }
+            //}
     })
 }
