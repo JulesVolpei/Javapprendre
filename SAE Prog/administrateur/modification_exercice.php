@@ -7,23 +7,6 @@ $conn = new PDO('sqlite:../db/javapprendre.sqlite3');
 $idExo = $_SESSION['id'];
 
 
-
-if(ISSET($_POST['enregistrement'])){  //Vérifie si l'utilisateur a appuyé sur le bouton modification de l'exo
-    //Initialisation des variables
-	//On créé les variables 
-    
-	$nomExo = $_POST['nomExo'];
-    $descriptionExo = $_POST['descriptionExo'];
-    $req = $conn->query('UPDATE exos SET description_exo = "'.$nomExo.'" where id_exo = "'.$idExo.'"');
-    $req = $conn->query('UPDATE exos SET nom_exo = "'.$descriptionExo.'" where id_exo = "'.$idExo.'"');
-
-echo "Succès ! L'exercice vient d'être modifié. Redirection automatique dans 3 secondes ";
-
-
-header("Refresh: 3;choix_exercice_admin.php");
-}
-
-
 if(ISSET($_POST['creer'])){ //Vérifie si l'utilisateur a appuyé sur le bouton créer l'exo
     $nom = $_POST['nom'];
     $description = $_POST['description'];
