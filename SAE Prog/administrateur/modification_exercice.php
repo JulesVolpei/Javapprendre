@@ -23,7 +23,7 @@ if(ISSET($_POST['creer'])){ //Vérifie si l'utilisateur a appuyé sur le bouton 
     fclose($programFile);
     fclose($programFiles);
    
-    $query = "INSERT INTO exos ( nom_exo,description_exo,objectif_exo,text_de_base,fichier_test, numFichiersTests) VALUES ( :nom, :description, :objectifs ,:contenu, :nom_test, 1)"; //On insert dans la table exos le nom de l'exo, la description et le contenu
+    $query = "INSERT INTO exos ( nom_exo,description_exo,objectif_exo,text_de_base,fichier_test, numFichiersTests, fichier) VALUES ( :nom, :description, :objectifs ,:contenu, :nom_test, 1, :nom)"; //On insert dans la table exos le nom de l'exo, la description et le contenu
     $stmt = $conn->prepare($query);
     $stmt -> bindParam( ':nom', $nom);
     $stmt -> bindParam( ':description', $description);
