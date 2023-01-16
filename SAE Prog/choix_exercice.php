@@ -5,10 +5,30 @@ if (!isset($_SESSION['pseudo'])) {
   header('Location: index.php');
   exit();
 }
+
 ?>
 <?php
 //DEFINE PDO
 $conn = new PDO('sqlite:db/javapprendre.sqlite3');
+$pseudo = $_SESSION['pseudo'];
+$tyty = $conn->prepare('select mem_id from membre where pseudo = :pseudo ');
+$tyty->bindValue(':pseudo', $pseudo);
+$tyty->execute();
+$result = $tyty->fetch(PDO::FETCH_ASSOC);
+$mem_id =  $result['mem_id'];
+
+$progression = 'SELECT COUNT(id_exo) ti from score where mem_id = "'.$mem_id.'"';
+$stmt = $conn->prepare($progression);
+$stmt->execute();
+$row = $stmt->fetch();
+$count = $row['ti'];
+
+$testo = 'select count(id_exo) pet from exos';
+$tooo = $conn->prepare($testo);
+$tooo->execute();
+$roow = $tooo->fetch();
+$couunt = $roow['pet'];
+
 
 try {
   $res = $conn->query('select * from exos');
@@ -43,6 +63,7 @@ try {
       <a href="index.php"><img src="images/logo.png" alt="Logo"></a>
       
       <div class="bouttons">
+         <a href="administrateur/admin.php" class="bn14">Progression :  <?php echo $count; ?>/<?php echo $couunt; ?> </a>
         <a href="formulaire/deconnexion.php" class="bn14">Déconnexion</a>
         <a href="administrateur/admin.php" class="bn14">Admin</a>
       </div>
