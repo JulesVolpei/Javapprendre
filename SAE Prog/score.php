@@ -16,15 +16,12 @@ $mem_id =  $result['mem_id'];
 
 if ($temps != null) {
     // Selection de la variable dans la base de données
-    $query = $conn->prepare("SELECT * FROM score WHERE mem_id = :mem_id");
+    $query = $conn->prepare("SELECT * FROM score WHERE mem_id = :mem_id and id_exo = :id_exo");
     $query->bindValue(':mem_id', $mem_id);
+    $query->bindValue(':id_exo', $id_Exo + 1 );
     $query->execute();
     $results = $query->fetch(PDO::FETCH_ASSOC);
-    $quest = $conn->prepare("SELECT id_exo FROM score WHERE id_exo = :id_exo");
-    $quest->bindValue(':id_exo', $id_Exo);
-    $quest->execute();
-    $resultss = $quest->fetch(PDO::FETCH_ASSOC);
-    if (!$results || !$resultss) {
+    if (!$results) {
         //inserér le temps 
         $query = $conn->prepare("INSERT INTO score (id_exo, temps, mem_id) VALUES (:id_exo, :temps, :mem_id)");
         $query->bindValue(':temps', $temps);
