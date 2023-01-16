@@ -11,23 +11,23 @@ if (!isset($_SESSION['pseudo'])) {
 //DEFINE PDO
 $conn = new PDO('sqlite:db/javapprendre.sqlite3');
 $pseudo = $_SESSION['pseudo'];
-$tyty = $conn->prepare('select mem_id from membre where pseudo = :pseudo ');
-$tyty->bindValue(':pseudo', $pseudo);
-$tyty->execute();
-$result = $tyty->fetch(PDO::FETCH_ASSOC);
+$id = $conn->prepare('select mem_id from membre where pseudo = :pseudo ');
+$id->bindValue(':pseudo', $pseudo);
+$id->execute();
+$result = $id->fetch(PDO::FETCH_ASSOC);
 $mem_id =  $result['mem_id'];
 
-$progression = 'SELECT COUNT(id_exo) ti from score where mem_id = "'.$mem_id.'"';
+$progression = 'SELECT COUNT(id_exo) prog from score where mem_id = "'.$mem_id.'"';
 $stmt = $conn->prepare($progression);
 $stmt->execute();
 $row = $stmt->fetch();
-$count = $row['ti'];
+$count = $row['prog'];
 
-$testo = 'select count(id_exo) compt from exos';
-$tooo = $conn->prepare($testo);
-$tooo->execute();
-$roow = $tooo->fetch();
-$couunt = $roow['compt'];
+$compteur = 'select count(id_exo) compt from exos';
+$compteurs = $conn->prepare($compteur);
+$compteurs->execute();
+$ligne = $compteurs->fetch();
+$couunt = $ligne['compt'];
 
 
 try {
@@ -45,11 +45,12 @@ try {
 <html lang="fr">
 
 <head>
-  <link rel="icon" href="https://1000logos.net/wp-content/uploads/2020/09/Java-Emblem.jpg">
+  
   <title>Exercice</title>
   <meta charset="UTF-8">
+  <link rel="icon" href="images/logo.ico">
   <meta name="viewport" content="width = device-width, initial-scale = 1.0">
-  <title>Page 4</title>
+  <meta name="Choix Exercice" content="Page choix d'exercice" />
   <link rel="stylesheet" type="text/css" href="css/choixExercice.css">
   <link rel="stylesheet" type="text/css" href="css/swiper.css">
   <link rel="stylesheet" href="css/popup.css">

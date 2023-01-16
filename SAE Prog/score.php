@@ -7,10 +7,10 @@ $temps = $_POST['data'];
 $pseudo = $_SESSION['pseudo'];
 $id_Exo = $_SESSION['id'];
 
-$tyty = $conn->prepare('select mem_id from membre where pseudo = :pseudo ');
-$tyty->bindValue(':pseudo', $pseudo);
-$tyty->execute();
-$result = $tyty->fetch(PDO::FETCH_ASSOC);
+$id = $conn->prepare('select mem_id from membre where pseudo = :pseudo ');
+$id->bindValue(':pseudo', $pseudo);
+$id->execute();
+$result = $id->fetch(PDO::FETCH_ASSOC);
 $mem_id =  $result['mem_id'];
 
 

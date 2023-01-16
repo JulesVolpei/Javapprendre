@@ -3,6 +3,7 @@
 
 <head>
     <title>Javapprendre</title>
+    <link rel="icon" href="images/logo.ico">
     <link rel="icon" href="https://1000logos.net/wp-content/uploads/2020/09/Java-Emblem.jpg">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,7 +24,7 @@
     </div>
 
     <div class="infos">  
-        </br> 
+        
         <div class="presentation">
             <div class="circle"></div>
             <h2 id="Presentation">Qui sommes nous ?</h2>
@@ -61,7 +62,6 @@
 
 <footer class="footer">
     <div class="aPropos"> <a href="aPropos.html">À PROPOS</a> </div>
-    <!---->
     <div class="Github"> <a href="https://github.com/JulesVolpei/Javapprendre">Notre Github</a> </div>
 </footer>
 
