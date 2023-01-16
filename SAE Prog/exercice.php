@@ -75,7 +75,7 @@ catch(PDOException $e)
         <div class="nav-container">
           
         <div class="brand">
-          <a href="../choix_exercice.php"><img src="../images/logo.png" alt="Logo"></a>
+          <a href="../choix_exercice.php"><img src="images/logo.png" alt="Logo"></a>
         </div>
           
            <div name="affi" id="time"></div>  
