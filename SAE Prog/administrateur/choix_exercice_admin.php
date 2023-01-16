@@ -1,5 +1,5 @@
 <?php
-//starting the session
+//On commence la session
 session_start();
 if (!isset($_SESSION['pseudo'])) {
   header('Location: ../index.php');
@@ -24,11 +24,11 @@ try {
 <html lang="fr">
 
 <head>
-<link rel="icon" href="https://1000logos.net/wp-content/uploads/2020/09/Java-Emblem.jpg">
+<link rel="icon" href="../images/logo.ico">
   <title>Exercice</title>
   <meta charset="UTF-8">
+  <link rel="icon" href="../images/logo.ico">
   <meta name="viewport" content="width = device-width, initial-scale = 1.0">
-  <title>Page 4</title>
   <link rel="stylesheet" type="text/css" href="../css/choixExercice.css">
   <link rel="stylesheet" type="text/css" href="../css/swiper.css">
   <link rel="stylesheet" href="../css/popup.css">
@@ -36,24 +36,24 @@ try {
 </head>
 
 <body>
-<section class="navigation">
+  <section class="navigation">
     <div class="nav-container">
       <a href="../index.php"><img src="../images/logo.png" alt="Logo"></a>
       <div class="bouttonsAdmin">
-      <nav>
-        <ul class="nav-list">
-          <li>
-          <form method="POST" action="modification_exercice.php">
-            <a href="creer.php" name= "test" class="bn14 creer-exo">Créer exo</a>
-          </form>
-          </li>
-          <li>
-            <a href="../formulaire/deconnexion.php" class="bn14">Déconnexion</a>
-        
+        <nav>
+          <ul class="nav-list">
+            <li>
+              <form method="POST" action="modification_exercice.php">
+                <a href="creer.php" name="test" class="bn14 creer-exo">Créer exo</a>
+              </form>
+            </li>
+            <li>
+              <a href="../formulaire/deconnexion.php" class="bn14">Déconnexion</a>
 
-          </li>
-        </ul>
-      </nav>
+
+            </li>
+          </ul>
+        </nav>
       </div>
 
     </div>
@@ -66,14 +66,14 @@ try {
       <?php
       for ($x = 0; $x < $number_of_rows; ++$x)
         echo '<div class = "swiper-slide c1">' . $rows[$x]['nom_exo'] . '<br>' . '<br>' . '<br>' . $rows[$x]['description_exo'] . '<br><br><br><br><br><br><br><br><br><br><br><br>' .
-          '   <a href="../exercice.php?id='.$x.'"><button class="learn-more" id="button1">
+          '   <a href="../exercice.php?id=' . $x . '"><button class="learn-more" id="button1">
               <span class="circle" aria-hidden="true">
                 <span class="icon arrow"></span>
               </span>
               <span class="button-text">voir exo</span>
               </button>
               </a>
-              <a href="supprimer.php?id='.$rows[$x]['id_exo'].'"><button class="learn-more" id="button1">
+              <a href="supprimer.php?id=' . $rows[$x]['id_exo'] . '"><button class="learn-more" id="button1">
               <span class="circle" aria-hidden="true">
                 <span class="icon arrow"></span>
               </span>
@@ -107,8 +107,8 @@ try {
     <button id="close">&times;</button>
     <h2>Admninistration </h2>
     <p>
- 
-    Bonjour <strong><?php echo htmlentities(trim($_SESSION['pseudo']) ); ?> </strong> </h3>vous avez maintenant le grade <strong>Admninistrateur</strong>. Vous avez la possibilité de créer des exercices. <strong><?php echo htmlentities(trim($_SESSION['exo']) ); ?> </strong>
+
+      Bonjour <strong><?php echo htmlentities(trim($_SESSION['pseudo'])); ?> </strong> </h3>vous avez maintenant le grade <strong>Admninistrateur</strong>. Vous avez la possibilité de créer des exercices. <strong><?php echo htmlentities(trim($_SESSION['exo'])); ?> </strong>
     </p>
 
   </div>
