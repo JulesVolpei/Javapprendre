@@ -12,6 +12,9 @@ session_start();
 </head>
 
 <body>
+
+    <a href="../choix_exercice.php"><img src="../images/logo.png" alt="Logo" class="logo"></a>
+
     <form method="POST" action="modification_exercice.php">
 
                 <div class="all-container">
