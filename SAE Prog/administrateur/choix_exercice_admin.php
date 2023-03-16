@@ -48,7 +48,7 @@ try {
               </form>
             </li>
             <li>
-              <a href="../formulaire/deconnexion.php" class="bn14">Déconnexion</a>
+              <a href="../formulaire/deconnexion.php" class="bn14 deconnexion">Déconnexion</a>
 
 
             </li>
@@ -64,32 +64,26 @@ try {
     <div class="swiper-wrapper">
       <!-- Slides -->
       <?php
-      for ($x = 0; $x < $number_of_rows; ++$x)
-        echo '<div class = "swiper-slide c1">' . $rows[$x]['nom_exo'] . '<br>' . '<br>' . '<br>' . $rows[$x]['description_exo'] . '<br><br><br><br><br><br><br><br><br><br><br><br>' .
-          '   <a href="../exercice.php?id=' . $x . '"><button class="learn-more" id="button1">
-              <span class="circle" aria-hidden="true">
-                <span class="icon arrow"></span>
-              </span>
-              <span class="button-text">voir exo</span>
+      for ($x = 0; $x < $number_of_rows; ++$x) {
+        echo '<div class="swiper-slide c1">
+            <div class="nom-exo">' . $rows[$x]['nom_exo'] . '</div>
+            <div class="description-exo">' . $rows[$x]['description_exo'] . '</div>
+            <div class="image">
+              <img src="/images/'.$rows[$x]['fichier'].'.png" alt="'.$rows[$x]['description_exo'] . '">
+            </div>
+            <a href="exercice.php?id=' . $x . '">
+              <button class="learn-more" id="button1">
+                <span class="circle" aria-hidden="true">
+                  <span class="icon arrow"></span>
+                </span>
+                <span class="button-text">voir exo</span>
               </button>
-              </a>
-              <a href="supprimer.php?id=' . $rows[$x]['id_exo'] . '"><button class="learn-more" id="button1">
-              <span class="circle" aria-hidden="true">
-                <span class="icon arrow"></span>
-              </span>
-              <span class="button-text">Supprimer</span>
-              </button>
-              </a>
-              <a href="modifier.php?id=' . $rows[$x]['id_exo'] . '"><button class="learn-more" id="button1">
-              <span class="circle" aria-hidden="true">
-                <span class="icon arrow"></span>
-              </span>
-              <span class="button-text">modifier</span>
-              </button>
-              </a>'
-              
-          . '</div>'
+            </a>
+          </div>';
+      }
       ?>
+
+
     </div>
 
     <!-- If we need pagination -->
