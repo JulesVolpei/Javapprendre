@@ -95,7 +95,6 @@ try {
       }
       ?>
 
-
     </div>
 
     <!-- If we need pagination -->
