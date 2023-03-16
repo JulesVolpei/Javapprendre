@@ -64,7 +64,7 @@ try {
     <div class="swiper-wrapper">
       <!-- Slides -->
       <?php
-      for ($x = 0; $x < $number_of_rows; ++$x) {
+      for ($x = 0; $x < $number_of_rows; ++$x) 
         echo '<div class="swiper-slide c1">
             <div class="nom-exo">' . $rows[$x]['nom_exo'] . '</div>
             <div class="description-exo">' . $rows[$x]['description_exo'] . '</div>
@@ -79,9 +79,23 @@ try {
                 <span class="button-text">voir exo</span>
               </button>
             </a>
-          </div>';
-      }
-      ?>
+            <a href="supprimer.php?id=' . $rows[$x]['id_exo'] . '"><button class="learn-more" id="button1">
+            <span class="circle" aria-hidden="true">
+              <span class="icon arrow"></span>
+            </span>
+            <span class="button-text">Supprimer</span>
+            </button>
+            </a>
+            <a href="modifier.php?id=' . $rows[$x]['id_exo'] . '"><button class="learn-more" id="button1">
+            <span class="circle" aria-hidden="true">
+              <span class="icon arrow"></span>
+            </span>
+            <span class="button-text">modifier</span>
+            </button>
+            </a>'
+            
+        . '</div>'
+    ?>
 
 
     </div>
