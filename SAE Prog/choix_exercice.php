@@ -17,7 +17,7 @@ $id->execute();
 $result = $id->fetch(PDO::FETCH_ASSOC);
 $mem_id =  $result['mem_id'];
 
-$progression = 'SELECT COUNT(id_exo) prog from score where mem_id = "'.$mem_id.'"';
+$progression = 'SELECT COUNT(id_exo) prog from score where mem_id = "' . $mem_id . '"';
 $stmt = $conn->prepare($progression);
 $stmt->execute();
 $row = $stmt->fetch();
@@ -45,7 +45,7 @@ try {
 <html lang="fr">
 
 <head>
-  
+
   <title>Exercice</title>
   <meta charset="UTF-8">
   <link rel="icon" href="images/logo.ico">
@@ -61,9 +61,9 @@ try {
   <section class="navigation">
     <div class="nav-container">
       <a href="index.php"><img src="images/logo.png" alt="Logo"></a>
-      
+
       <div class="bouttons">
-         <a class="bn14">Progression :  <?php echo $count; ?>/<?php echo $couunt; ?> </a>
+        <a class="bn14">Progression : <?php echo $count; ?>/<?php echo $couunt; ?> </a>
         <a href="formulaire/deconnexion.php" class="bn14">Déconnexion</a>
         <a href="administrateur/admin.php" class="bn14">Admin</a>
       </div>
@@ -76,17 +76,26 @@ try {
     <div class="swiper-wrapper">
       <!-- Slides -->
       <?php
-      for ($x = 0; $x < $number_of_rows; ++$x)
-        echo '<div class = "swiper-slide c1">' . $rows[$x]['nom_exo'] . '<br>' . '<br>' . '<br>' . $rows[$x]['description_exo'] . '<br><br><br><br><br><br><br><br><br><br><br><br>' .
-          ' <a href="exercice.php?id=' . $x . '"><button class="learn-more" id="button1">
-          <span class="circle" aria-hidden="true">
-            <span class="icon arrow"></span>
-          </span>
-          <span class="button-text">voir exo</span>
-          </button>
-          </a>'
-          . '</div>'
+      for ($x = 0; $x < $number_of_rows; ++$x) {
+        echo '<div class="swiper-slide c1">
+            <div class="nom-exo">' . $rows[$x]['nom_exo'] . '</div>
+            <div class="description-exo">' . $rows[$x]['description_exo'] . '</div>
+            <div class="image">
+              <img src="/images/'.$rows[$x]['fichier'].'.png" alt="'.$rows[$x]['description_exo'] . '">
+            </div>
+            <a href="exercice.php?id=' . $x . '">
+              <button class="learn-more" id="button1">
+                <span class="circle" aria-hidden="true">
+                  <span class="icon arrow"></span>
+                </span>
+                <span class="button-text">voir exo</span>
+              </button>
+            </a>
+          </div>';
+      }
       ?>
+
+
     </div>
 
     <!-- If we need pagination -->
