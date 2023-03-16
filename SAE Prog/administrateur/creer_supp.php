@@ -47,5 +47,36 @@ if (isset($_POST['supprimer'])) { //Vérifie si l'utilisateur a appuyé sur le b
     $stmt->execute();
     echo "Succès ! L'exercice vient d'être supprimé. Redirection automatique dans 3 secondes ";
 
+
+    header("Refresh: 3;choix_exercice_admin.php");
+}
+
+if (isset($_POST['modifier'])) { //Vérifie si l'utilisateur a appuyé sur le bouton créer l'exo
+    $nom = $_POST['nom'];
+    $description = $_POST['description'];
+    $contenuExo = $_POST['contenu'];
+    $obj = $_POST['objectifs'];
+    $test = $_POST['testsUnitaires'];
+    $nom_test = "Test" . $nom;
+    $filePath = "../javatests/" . $nom . ".java";
+    $filesPath = "../javatests/" . "Test" . $nom . ".java";
+    $programFile = fopen($filePath, "w") or die("Unable to open file!");
+    $programFiles = fopen($filesPath, "w") or die("Unable to open file!");
+    fwrite($programFile, $contenuExo);
+    fwrite($programFiles, $test);
+    fclose($programFile);
+    fclose($programFiles);
+
+    $query = 'UPDATE exos set nom_exo = :nom, description_exo = :description, objectif_exo = :objectifs, text_de_base = :contenu, fichier_test = :nom_test where id_exo = "' . $idExo . '"';
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(':nom', $nom);
+    $stmt->bindParam(':description', $description);
+    $stmt->bindParam(':objectifs', $obj);
+    $stmt->bindParam(':contenu', $contenuExo);
+    $stmt->bindParam(':nom_test', $nom_test);
+    $stmt->execute();
+
+    echo "Succès ! L'exercice vient d'être modifié. Redirection automatique dans 3 secondes ";
+
     header("Refresh: 3;choix_exercice_admin.php");
 }

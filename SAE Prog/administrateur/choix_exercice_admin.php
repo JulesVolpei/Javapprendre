@@ -79,7 +79,15 @@ try {
               </span>
               <span class="button-text">Supprimer</span>
               </button>
+              </a>
+              <a href="modifier.php?id=' . $rows[$x]['id_exo'] . '"><button class="learn-more" id="button1">
+              <span class="circle" aria-hidden="true">
+                <span class="icon arrow"></span>
+              </span>
+              <span class="button-text">modifier</span>
+              </button>
               </a>'
+              
           . '</div>'
       ?>
     </div>
